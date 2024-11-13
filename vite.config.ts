@@ -15,15 +15,16 @@ export default defineConfig({
 
   resolve: {
     alias: {
-      "@@theme": path.resolve(__dirname, "./src/theme"),
+      "@@": path.resolve(__dirname, "./src"),
+      "@@builder": path.resolve(__dirname, "./src/builder"),
       "@@builderComponents": path.resolve(
         __dirname,
         "./src/builder/components"
       ),
-      "@@builder": path.resolve(__dirname, "./src/builder"),
-      "@@typography": path.resolve(__dirname, "./src/typography"),
       "@@components": path.resolve(__dirname, "./src/components"),
-      "@@": path.resolve(__dirname, "./src"),
+      "@@theme": path.resolve(__dirname, "./src/theme"),
+      "@@typography": path.resolve(__dirname, "./src/typography"),
+      "@@ui": path.resolve(__dirname, "./src/ui"),
     },
   },
 });

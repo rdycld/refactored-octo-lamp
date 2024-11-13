@@ -4,13 +4,18 @@ type Size = 1 | 2 | 3 | 4 | 5;
 type Type = "body" | "heading";
 type Kind = `${Type}${Size}`;
 
+type TypographyTags = Extract<
+  "p" | "h1" | "h2" | "h3" | "h4" | "h5",
+  keyof JSX.IntrinsicElements
+>;
+
 type TypographyProps = {
   kind?: Kind;
   children: string;
   asKind?: boolean;
 };
 
-const kindToTagMapping: Record<Kind, "p" | `h${Size}`> = {
+const kindToTagMapping: Record<Kind, TypographyTags> = {
   body1: "p",
   body2: "p",
   body3: "p",
@@ -28,7 +33,7 @@ export const Typography = ({
   children,
   asKind = false,
 }: TypographyProps) => {
-  const Tag = asKind ? kindToTagMapping[kind] : "p";
+  const Tag: TypographyTags = asKind ? kindToTagMapping[kind] : "p";
 
   return <Tag className={styles[kind]}>{children}</Tag>;
 };

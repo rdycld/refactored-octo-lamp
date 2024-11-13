@@ -23,11 +23,12 @@
     
     "baseUrl": "./",
     "paths": {
-      "@@builderComponents/*": ["./src/builder/components/*"],
       "@@builder/*": ["./src/builder/*"],
+      "@@builderComponents/*": ["./src/builder/components/*"],
       "@@components/*": ["./src/components/*"],
+      "@@theme/*": ["./src/theme/*"],
       "@@typography/*": ["./src/typography/*"],
-      "@@theme/*": ["./src/theme/*"]
+      "@@ui/*": ["./src/ui/*"]
     }
   },
 
