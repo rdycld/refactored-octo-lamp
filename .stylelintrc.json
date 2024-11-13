@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json.schemastore.org/stylelintrc",
+  "extends": ["stylelint-config-standard-scss", "stylelint-config-prettier-scss"],
+  "rules": {
+    "selector-class-pattern": null,
+    "scss/dollar-variable-pattern": null,
+    "custom-property-empty-line-before": null,
+    "color-function-notation": null,
+    "hue-degree-notation": null,
+    "value-keyword-case": null
+  }
+}
