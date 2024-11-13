@@ -1,5 +1,5 @@
+import Counter from "@@builderComponents/Counter/Counter";
 import type { RegisteredComponent } from "@builder.io/sdk-react";
-import Counter from "../components/Counter/Counter";
 
 export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
   {

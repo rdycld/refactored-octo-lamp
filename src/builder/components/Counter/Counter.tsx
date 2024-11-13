@@ -1,5 +1,6 @@
 import { useState } from "react";
-import styles from "./styles.module.scss";
+
+import styles from "./Counter.module.scss";
 
 interface CounterProps {
   initialCount?: number;

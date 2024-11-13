@@ -16,7 +16,13 @@ export default defineConfig({
   resolve: {
     alias: {
       "@@theme": path.resolve(__dirname, "./src/theme"),
+      "@@builderComponents": path.resolve(
+        __dirname,
+        "./src/builder/components"
+      ),
       "@@builder": path.resolve(__dirname, "./src/builder"),
+      "@@typography": path.resolve(__dirname, "./src/typography"),
+      "@@components": path.resolve(__dirname, "./src/components"),
       "@@": path.resolve(__dirname, "./src"),
     },
   },
