@@ -8,6 +8,7 @@ type Common = {
   size?: "small" | "normal";
   variant?: "full" | "hollow" | "hollowDark";
   disabled?: boolean;
+  text?: string;
 };
 
 type ButtonProps = Common &
@@ -51,6 +52,7 @@ export const Button = ({
   children,
   size = "normal",
   variant = "full",
+  text,
   ...rest
 }: ButtonProps) => {
   const { asLink, withCounter } = rest;
@@ -67,6 +69,7 @@ export const Button = ({
       {...rest}
     >
       {children}
+      {text}
       <Spacer />
       {rest.withCounter ? (
         <span>{rest.count}</span>
