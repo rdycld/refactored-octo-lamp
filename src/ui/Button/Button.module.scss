@@ -1,0 +1,148 @@
+.withCounter {
+  flex-direction: row-reverse;
+}
+
+.spacer {
+  transition: background var(--ver-transition-normal);
+}
+
+.icon {
+  transition: fill var(--ver-transition-normal);
+}
+
+.base {
+  display: flex;
+  gap: var(--ver-spacing-s);
+  justify-content: center;
+  align-items: center;
+  border-radius: 2px;
+  cursor: pointer;
+  border: none;
+  text-transform: uppercase;
+  transition: background-color var(--ver-transition-normal),
+    color var(--ver-transition-normal),
+    border-color var(--ver-transition-normal);
+  will-change: background-color, color, border-color;
+}
+
+.small {
+  padding: var(--ver-spacing-xs) var(--ver-spacing-m);
+}
+
+.normal {
+  padding: var(--ver-spacing-m) var(--ver-spacing-l);
+}
+
+.full {
+  background-color: var(--ver-purple-50);
+  color: var(--ver-white);
+
+  & > .spacer {
+    background: var(--ver-purple-70);
+  }
+
+  & > .icon {
+    fill: var(--ver-white);
+  }
+
+  &:hover {
+    background-color: var(--ver-purple-30);
+    color: var(--ver-gray-96);
+
+    & > .icon {
+      fill: var(--ver-gray-96);
+    }
+  }
+
+  &:disabled {
+    background-color: var(--ver-gray-20);
+    color: var(--ver-gray-60);
+
+    & > .spacer {
+      background: var(--ver-gray-80);
+    }
+
+    & > .icon {
+      fill: var(--ver-gray-60);
+    }
+  }
+}
+
+.hollow {
+  background-color: transparent;
+  border: 1px solid var(--ver-white);
+  color: var(--ver-white);
+
+  & > .spacer {
+    background: var(--ver-white);
+  }
+
+  & > .icon {
+    fill: var(--ver-purple-30);
+  }
+
+  &:hover {
+    border-color: var(--ver-purple-30);
+    color: var(--ver-purple-30);
+
+    & > .spacer {
+      background: var(--ver-purple-30);
+    }
+
+    & > .icon {
+      fill: var(--ver-white);
+    }
+  }
+
+  &:disabled {
+    border-color: var(--ver-gray-40);
+    color: var(--ver-gray-40);
+
+    & > .spacer {
+      background: var(--ver-gray-60);
+    }
+
+    & > .icon {
+      fill: var(--ver-gray-40);
+    }
+  }
+}
+
+.hollowDark {
+  background-color: transparent;
+  border: 1px solid var(--ver-gray-96);
+
+  & > .spacer {
+    background: var(--ver-gray-96);
+  }
+
+  & > .icon {
+    fill: var(--ver-purple-50);
+  }
+
+  &:hover {
+    border-color: var(--ver-purple-30);
+    color: var(--ver-purple-30);
+
+    & > .spacer {
+      background: var(--ver-purple-30);
+    }
+
+    & > .icon {
+      fill: var(--ver-white);
+    }
+  }
+
+  &:disabled {
+    border-color: var(--ver-gray-40);
+    color: var(--ver-gray-40);
+
+    & > .spacer {
+      background: var(--ver-gray-60);
+    }
+
+    & > .icon {
+      fill: var(--ver-gray-40);
+    }
+  }
+}

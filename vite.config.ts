@@ -3,6 +3,7 @@ import path from "path";
 import { builderDevTools } from "@builder.io/dev-tools/vite";
 import react from "@vitejs/plugin-react";
 import sassDts from "vite-plugin-sass-dts";
+import svgr from "vite-plugin-svgr";
 
 // https://vite.dev/config/
 
@@ -11,6 +12,7 @@ export default defineConfig({
     react(),
     sassDts({ enabledMode: ["development", "production"] }),
     builderDevTools(),
+    svgr({ include: "**/*.svg?react" }),
   ],
 
   resolve: {
@@ -25,6 +27,7 @@ export default defineConfig({
       "@@theme": path.resolve(__dirname, "./src/theme"),
       "@@typography": path.resolve(__dirname, "./src/typography"),
       "@@ui": path.resolve(__dirname, "./src/ui"),
+      "@@icons": path.resolve(__dirname, "./src/assets/icons"),
     },
   },
 });

@@ -28,7 +28,9 @@
       "@@components/*": ["./src/components/*"],
       "@@theme/*": ["./src/theme/*"],
       "@@typography/*": ["./src/typography/*"],
-      "@@ui/*": ["./src/ui/*"]
+      "@@ui/*": ["./src/ui/*"],
+      "@@icons/*": ["./src/assets/icons/*"],
+      
     }
   },
 
