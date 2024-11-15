@@ -1,0 +1,32 @@
+.base {
+  padding: 16px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ver-spacing-xs);
+  align-items: flex-start;
+
+  @media screen and (min-width: 1280px) {
+    padding: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+}
+
+.overflow {
+  margin: auto;
+  max-width: 1296px;
+}
+
+.normal {
+  margin: auto;
+  max-width: 1162px;
+}
+
+.withCta {
+  @media screen and (min-width: 1280px) {
+    max-width: 70%;
+    flex-grow: 1;
+  }
+}

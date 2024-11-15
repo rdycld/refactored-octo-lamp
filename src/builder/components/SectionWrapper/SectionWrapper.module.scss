@@ -1,0 +1,25 @@
+.full {
+  width: 100%;
+}
+
+.overflow {
+  margin: auto;
+  max-width: 1296px;
+  width: 100%;
+  padding: var(--ver-spacing-xs);
+
+  @media screen and (min-width: 1280px) {
+    padding: 0;
+  }
+}
+
+.normal {
+  margin: auto;
+  max-width: 1162px;
+  width: 100%;
+  padding: var(--ver-spacing-xs);
+
+  @media screen and (min-width: 1280px) {
+    padding: 0;
+  }
+}

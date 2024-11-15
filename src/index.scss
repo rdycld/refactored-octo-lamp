@@ -6,12 +6,18 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+  appearance: none;
+}
+
 html,
 body,
 #root {
   height: 100%;
   margin: 0;
   padding: 0;
+  background-color: var(--ver-gray-2);
 }
 
 p,
