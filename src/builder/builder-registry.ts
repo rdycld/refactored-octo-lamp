@@ -5,6 +5,7 @@ import type { RegisteredComponent } from "@builder.io/sdk-react";
 import { withChildren } from "@builder.io/react";
 import { TileWithIcon } from "@@builder/components/TileWithIcon/TileWithIcon";
 import { LogoTile } from "@@builder/components/LogoTile/LogoTile";
+import { VideoControl } from "@@builder/components/VideoControl/VideoControl";
 
 export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
   {
@@ -237,6 +238,49 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
             marginBottom: "auto",
           },
         },
+      },
+    ],
+  },
+  {
+    component: withChildren(VideoControl),
+    name: "Video Controll",
+    defaultStyles: {
+      // padding: "24px",
+      // backgroundColor: "var(--ver-gray-6)",
+      // margin: "0px",
+      // height: "100%",
+    },
+    // inputs: [
+    //   {
+    //     name: "description",
+    //     type: "string",
+    //     defaultValue: "name - location",
+    //   },
+    // ],
+    defaultChildren: [
+      {
+        "@type": "@builder.io/sdk:Element",
+        component: {
+          name: "Video",
+          options: {
+            loop: true,
+            autoPlay: true,
+          },
+          // options: {
+          //   image:
+          //     "https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F72c80f114dc149019051b6852a9e3b7a",
+          //   backgroundSize: "contain",
+          //   backgroundPosition: "center",
+          // },
+        },
+        // responsiveStyles: {
+        //   large: {
+        //     position: "relative",
+        //     width: "100%",
+        //     marginTop: "auto",
+        //     marginBottom: "auto",
+        //   },
+        // },
       },
     ],
   },
