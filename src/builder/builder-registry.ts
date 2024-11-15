@@ -1,22 +1,11 @@
-import Counter from "@@builderComponents/Counter/Counter";
 import { SectionHeader } from "@@builderComponents/SectionHeader/SectionHeader";
+import { SectionWrapper } from "@@builderComponents/SectionWrapper/SectionWrapper";
 import { Button } from "@@ui/Button/Button";
 import type { RegisteredComponent } from "@builder.io/sdk-react";
 import { withChildren } from "@builder.io/react";
-import { SectionWrapper } from "@@builder/components/SectionWrapper/SectionWrapper";
+import { TileWithIcon } from "@@builder/components/TileWithIcon/TileWithIcon";
 
 export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
-  {
-    component: Counter,
-    name: "Counter",
-    inputs: [
-      {
-        name: "initialCount",
-        type: "number",
-        friendlyName: "initialCount11",
-      },
-    ],
-  },
   {
     component: Button,
     name: "Button",
@@ -141,6 +130,71 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
           name: "Core:Section",
           options: {
             maxWidth: "100%",
+          },
+        },
+      },
+    ],
+  },
+  {
+    component: withChildren(TileWithIcon),
+    name: "TileWithIcon",
+    defaultStyles: {
+      display: "flex",
+      flexDirection: "column",
+      position: "relative",
+      flexShrink: "0",
+      boxSizing: "border-box",
+      marginTop: "0px",
+      backgroundColor: "var(--ver-gray-10)",
+      height: "100%",
+    },
+    defaultChildren: [
+      {
+        "@type": "@builder.io/sdk:Element",
+        component: {
+          name: "Image",
+          options: {
+            image:
+              "https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F72c80f114dc149019051b6852a9e3b7a",
+          },
+        },
+        responsiveStyles: {
+          large: {
+            position: "relative",
+            marginBottom: "100px",
+            maxWidth: "128px",
+          },
+        },
+      },
+      {
+        "@type": "@builder.io/sdk:Element",
+        component: {
+          name: "Text",
+          options: {
+            text: "I am child text block!",
+          },
+        },
+        responsiveStyles: {
+          large: {
+            fontFamily: "Roboto, sans-serif",
+            color: "var(--ver-gray-96)",
+            fontSize: "58px",
+            marginBottom: "16px",
+          },
+        },
+      },
+      {
+        "@type": "@builder.io/sdk:Element",
+        component: {
+          name: "Text",
+          options: {
+            text: "I am child text block!",
+          },
+        },
+        responsiveStyles: {
+          large: {
+            fontFamily: "Roboto Mono, monospace",
+            color: "var(--ver-gray-60)",
           },
         },
       },
