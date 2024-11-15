@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import styles from "./Typography.module.scss";
 
 type Size = 1 | 2 | 3 | 4 | 5;
@@ -13,6 +14,7 @@ type TypographyProps = {
   kind?: Kind;
   children: string;
   asKind?: boolean;
+  className?: string;
 };
 
 const kindToTagMapping: Record<Kind, TypographyTags> = {
@@ -32,8 +34,9 @@ export const Typography = ({
   kind = "body2",
   children,
   asKind = false,
+  className,
 }: TypographyProps) => {
   const Tag: TypographyTags = asKind ? kindToTagMapping[kind] : "p";
 
-  return <Tag className={styles[kind]}>{children}</Tag>;
+  return <Tag className={clsx(styles[kind], className)}>{children}</Tag>;
 };

@@ -4,6 +4,7 @@ import { Button } from "@@ui/Button/Button";
 import type { RegisteredComponent } from "@builder.io/sdk-react";
 import { withChildren } from "@builder.io/react";
 import { TileWithIcon } from "@@builder/components/TileWithIcon/TileWithIcon";
+import { LogoTile } from "@@builder/components/LogoTile/LogoTile";
 
 export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
   {
@@ -195,6 +196,45 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
           large: {
             fontFamily: "Roboto Mono, monospace",
             color: "var(--ver-gray-60)",
+          },
+        },
+      },
+    ],
+  },
+  {
+    component: withChildren(LogoTile),
+    name: "Logo Tile",
+    defaultStyles: {
+      padding: "24px",
+      backgroundColor: "var(--ver-gray-6)",
+      margin: "0px",
+      height: "100%",
+    },
+    inputs: [
+      {
+        name: "description",
+        type: "string",
+        defaultValue: "name - location",
+      },
+    ],
+    defaultChildren: [
+      {
+        "@type": "@builder.io/sdk:Element",
+        component: {
+          name: "Image",
+          options: {
+            image:
+              "https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F72c80f114dc149019051b6852a9e3b7a",
+            backgroundSize: "contain",
+            backgroundPosition: "center",
+          },
+        },
+        responsiveStyles: {
+          large: {
+            position: "relative",
+            width: "100%",
+            marginTop: "auto",
+            marginBottom: "auto",
           },
         },
       },
