@@ -30,6 +30,7 @@
       "@@typography/*": ["./src/typography/*"],
       "@@ui/*": ["./src/ui/*"],
       "@@icons/*": ["./src/assets/icons/*"],
+      "@cssUtils":["./src/theme/_utilities.scss"]
       
     }
   },

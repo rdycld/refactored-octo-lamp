@@ -28,6 +28,7 @@ export default defineConfig({
       "@@typography": path.resolve(__dirname, "./src/typography"),
       "@@ui": path.resolve(__dirname, "./src/ui"),
       "@@icons": path.resolve(__dirname, "./src/assets/icons"),
+      "@cssUtils": path.resolve(__dirname, "./src/theme/_utilities.scss"),
     },
   },
 });

@@ -1,0 +1,13 @@
+@use "@cssUtils" as u;
+
+.container {
+  gap: var(--ver-spacing-xs);
+  display: flex;
+  flex-direction: column;
+
+  @include u.at-desktop {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-auto-rows: auto;
+  }
+}

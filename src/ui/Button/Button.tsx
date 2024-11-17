@@ -9,6 +9,7 @@ type Common = {
   variant?: "full" | "hollow" | "hollowDark";
   disabled?: boolean;
   text?: string;
+  className?: string;
 };
 
 type ButtonProps = Common &
@@ -53,6 +54,7 @@ export const Button = ({
   size = "normal",
   variant = "full",
   text,
+  className = "",
   ...rest
 }: ButtonProps) => {
   const { asLink, withCounter } = rest;
@@ -63,9 +65,15 @@ export const Button = ({
 
   return (
     <Tag
-      className={clsx(styles.base, styles[size], styles[variant], {
-        [styles.withCounter]: withCounter,
-      })}
+      className={clsx(
+        styles.base,
+        styles[size],
+        styles[variant],
+        {
+          [styles.withCounter]: withCounter,
+        },
+        className
+      )}
       {...rest}
     >
       {children}

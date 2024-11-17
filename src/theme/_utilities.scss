@@ -1,0 +1,13 @@
+@use "./variables" as v;
+
+@mixin breakpoint($minWidth) {
+  @media screen and (min-width: $minWidth) {
+    @content;
+  }
+}
+
+@mixin at-desktop {
+  @include breakpoint(v.$desktopWidthPx) {
+    @content;
+  }
+}

@@ -11,6 +11,10 @@ import { CUSTOM_COMPONENTS } from "./builder-registry";
 const BUILDER_API_KEY = import.meta.env.VITE_PUBLIC_BUILDER_KEY;
 const MODEL_NAME = "page";
 
+const getModelName = (pathname: string) => {
+  return pathname.includes("/blog/") ? "blog" : "page";
+};
+
 export default function BuilderPage() {
   const [notFound, setNotFound] = React.useState(false);
   const [content, setContent] = React.useState<BuilderContent | null>(null);
@@ -18,7 +22,7 @@ export default function BuilderPage() {
   // get the page content from Builder
   React.useEffect(() => {
     fetchOneEntry({
-      model: MODEL_NAME,
+      model: getModelName(window.location.pathname),
       apiKey: BUILDER_API_KEY,
       userAttributes: {
         urlPath: window.location.pathname,

@@ -2,5 +2,32 @@
   position: absolute;
   bottom: 30px;
   right: 30px;
-  background-color: red;
+  width: 56px;
+  height: 56px;
+  background-color: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+
+  border-top: 1px solid var(--ver-white);
+  border-right: 1px solid var(--ver-white);
+  border-bottom: 1px solid var(--ver-purple-50);
+  border-left: 1px solid var(--ver-purple-50);
+  animation: 2s infinite rotate linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.paused {
+  transform: rotate(45deg);
+  animation: none;
 }
