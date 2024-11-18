@@ -30,7 +30,8 @@
       "@@typography/*": ["./src/typography/*"],
       "@@ui/*": ["./src/ui/*"],
       "@@icons/*": ["./src/assets/icons/*"],
-      "@cssUtils":["./src/theme/_utilities.scss"]
+      "@cssUtils":["./src/theme/_utilities.scss"],
+      "@cssVars":["./src/theme/_variables.scss"]
       
     }
   },

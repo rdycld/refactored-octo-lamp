@@ -36,7 +36,6 @@ export const BlogTeaser = ({ tag, maxTiles = 3 }: BlogTeaserProps) => {
       }
 
       const data = await response.json();
-      console.log(data);
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       setPosts(data.results.map((el: any) => ({ ...el.data, id: el.id })));

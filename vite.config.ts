@@ -29,6 +29,7 @@ export default defineConfig({
       "@@ui": path.resolve(__dirname, "./src/ui"),
       "@@icons": path.resolve(__dirname, "./src/assets/icons"),
       "@cssUtils": path.resolve(__dirname, "./src/theme/_utilities.scss"),
+      "@cssVars": path.resolve(__dirname, "./src/theme/_variables.scss"),
     },
   },
 });

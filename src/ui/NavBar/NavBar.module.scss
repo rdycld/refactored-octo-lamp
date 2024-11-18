@@ -1,0 +1,68 @@
+@use "@cssVars" as v;
+@use "@cssUtils" as u;
+
+$desktopSpacing: var(--ver-spacing-m);
+
+.backgroundSpacer {
+  height: v.$navBarHeightPx;
+  background: transparent;
+
+  @include u.at-desktop {
+    height: calc(v.$navBarHeightPx + $desktopSpacing);
+  }
+}
+
+.container {
+  height: v.$navBarHeightPx;
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 999;
+
+  @include u.at-desktop {
+    top: $desktopSpacing;
+  }
+}
+
+.content {
+  height: v.$navBarHeightPx;
+  padding: var(--ver-spacing-xs) var(--ver-spacing-2xs) var(--ver-spacing-xs)
+    var(--ver-spacing-m);
+  background-color: var(--ver-white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+
+  @include u.at-desktop {
+    max-width: v.$containerWideWidthPx;
+    margin: auto;
+  }
+}
+
+.verityLogo {
+  flex-shrink: 0;
+  margin-right: auto;
+}
+
+.mobileMenuIcon {
+  cursor: pointer;
+}
+
+.navigationWrapper {
+  display: flex;
+  gap: var(--ver-spacing-xs);
+  background-color: purple;
+}
+
+.floatingSubMenu {
+  position: absolute;
+  background-color: red;
+  width: 200px;
+  height: 200px;
+  top: 50px;
+
+  transition: left 0.3s ease-out, transform 0.3s ease-out;
+
+  transform-origin: top center;
+}

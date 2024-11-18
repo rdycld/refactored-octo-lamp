@@ -1,3 +1,5 @@
+@use "@cssVars" as v;
+
 .base {
   padding: 16px;
   width: 100%;
@@ -16,12 +18,12 @@
 
 .overflow {
   margin: auto;
-  max-width: 1296px;
+  max-width: v.$containerWideWidthPx;
 }
 
 .normal {
   margin: auto;
-  max-width: 1162px;
+  max-width: v.$containerWidthPx;
 }
 
 .withCta {

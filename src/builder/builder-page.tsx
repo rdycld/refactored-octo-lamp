@@ -7,6 +7,7 @@ import {
   type BuilderContent,
 } from "@builder.io/sdk-react";
 import { CUSTOM_COMPONENTS } from "./builder-registry";
+import { NavBar } from "@@ui/NavBar/NavBar";
 
 const BUILDER_API_KEY = import.meta.env.VITE_PUBLIC_BUILDER_KEY;
 const MODEL_NAME = "page";
@@ -45,11 +46,14 @@ export default function BuilderPage() {
   }
 
   return (
-    <Content
-      content={content}
-      model={MODEL_NAME}
-      apiKey={BUILDER_API_KEY}
-      customComponents={CUSTOM_COMPONENTS}
-    />
+    <>
+      <NavBar />
+      <Content
+        content={content}
+        model={MODEL_NAME}
+        apiKey={BUILDER_API_KEY}
+        customComponents={CUSTOM_COMPONENTS}
+      />
+    </>
   );
 }
