@@ -26,7 +26,7 @@ $desktopSpacing: var(--ver-spacing-m);
 
 .content {
   height: v.$navBarHeightPx;
-  padding: var(--ver-spacing-xs) var(--ver-spacing-2xs) var(--ver-spacing-xs)
+  padding: var(--ver-spacing-xs) var(--ver-spacing-xs) var(--ver-spacing-xs)
     var(--ver-spacing-m);
   background-color: var(--ver-white);
   display: flex;
@@ -52,17 +52,37 @@ $desktopSpacing: var(--ver-spacing-m);
 .navigationWrapper {
   display: flex;
   gap: var(--ver-spacing-xs);
-  background-color: purple;
 }
 
 .floatingSubMenu {
   position: absolute;
-  background-color: red;
-  width: 200px;
-  height: 200px;
-  top: 50px;
+  min-width: 200px;
+  min-height: 200px;
+  top: 70px;
+  background-color: var(--ver-white);
+  border-end-end-radius: 4px;
+  padding: var(--ver-spacing-xl);
 
-  transition: left 0.3s ease-out, transform 0.3s ease-out;
-
+  transition: left 0.3s ease-out, transform 0.3s ease-out, width 0.3s ease-out;
   transform-origin: top center;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--ver-spacing-xl);
+
+  &::before {
+    width: 100%;
+    height: 30px;
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -30px;
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: var(--ver-gray-96);
+  font-size: 13px;
+  font-family: "Roboto Mono";
 }

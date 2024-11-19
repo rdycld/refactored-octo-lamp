@@ -6,5 +6,6 @@ declare const classNames: {
   readonly mobileMenuIcon: "mobileMenuIcon";
   readonly navigationWrapper: "navigationWrapper";
   readonly floatingSubMenu: "floatingSubMenu";
+  readonly link: "link";
 };
 export = classNames;

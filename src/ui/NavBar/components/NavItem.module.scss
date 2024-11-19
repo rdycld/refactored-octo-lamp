@@ -1,3 +1,39 @@
 .container {
   padding: var(--ver-spacing-xs) var(--ver-spacing-s);
+  display: flex;
+  align-items: center;
+  gap: var(--ver-spacing-2xs);
+  border-bottom: 3px solid transparent;
+  color: var(--ver-gray-96);
+  font-family: "Roboto Mono";
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 184.615% */
+  letter-spacing: 1.04px;
+  text-transform: uppercase;
+}
+
+.containerButton {
+  margin-left: var(--ver-spacing-l);
+  border-bottom: 3px solid transparent;
+  font-family: "Roboto Mono";
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 1.04px;
+  text-transform: uppercase;
+}
+
+.containerActive {
+  border-bottom: 3px solid var(--ver-purple-50);
+}
+
+.chevron {
+  transition: transform 0.15s ease-out;
+  transform: rotate(0deg);
+}
+
+.active {
+  transform: rotate(180deg);
 }

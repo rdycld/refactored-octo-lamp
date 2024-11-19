@@ -4,12 +4,13 @@ import styles from "./Button.module.scss";
 import DoubleArrowRight from "@@icons/double_arrow_right.svg?react";
 
 type Common = {
-  children?: string;
+  children?: React.ReactNode;
   size?: "small" | "normal";
   variant?: "full" | "hollow" | "hollowDark";
   disabled?: boolean;
   text?: string;
   className?: string;
+  onMouseEnter?: (e: React.MouseEvent) => void;
 };
 
 type ButtonProps = Common &
@@ -55,6 +56,7 @@ export const Button = ({
   variant = "full",
   text,
   className = "",
+  onMouseEnter,
   ...rest
 }: ButtonProps) => {
   const { asLink, withCounter } = rest;
@@ -65,6 +67,7 @@ export const Button = ({
 
   return (
     <Tag
+      onMouseEnter={onMouseEnter}
       className={clsx(
         styles.base,
         styles[size],
