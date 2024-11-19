@@ -1,14 +1,8 @@
 import VerityLogo from "../../assets/logo_verity_black.svg?react";
-import MenuIcon from "@@icons/menu.svg?react";
+// import MenuIcon from "@@icons/menu.svg?react";
 
 import styles from "./NavBar.module.scss";
-import {
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-  type ElementRef,
-} from "react";
+import { useEffect, useRef, useState, type ElementRef } from "react";
 import { NavItem } from "@@ui/NavBar/components/NavItem";
 
 // paddingLeft + mobileMenuIconWidth + paddingRight + arbitrary value so it's not all done on the edge
@@ -71,7 +65,7 @@ export const NavBar = () => {
     setNavigation((p) => p.map((el, idx) => ({ ...el, width: elWidths[idx] })));
   }, [navigation]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const f = () => {
       if (!navRef.current) return;
       if (!navContainerRef.current) return;
@@ -150,6 +144,12 @@ export const NavBar = () => {
     }
   };
 
+  const handleCursorLeaveNav = () => {
+    setFloatingMenuVisible(false);
+    setTransitioned(false);
+    setCurrentSubMenu("");
+  };
+
   const subMenu = navigation
     .find((el) => el.name === currentSubMenu)
     ?.subItems?.map((el) => (
@@ -164,11 +164,7 @@ export const NavBar = () => {
         <div
           ref={navContainerRef}
           className={styles.content}
-          onMouseLeave={() => {
-            setFloatingMenuVisible(false);
-            setTransitioned(false);
-            setCurrentSubMenu("");
-          }}
+          onMouseLeave={handleCursorLeaveNav}
         >
           <VerityLogo className={styles.verityLogo} />
           <nav ref={navRef} className={styles.navigationWrapper}>

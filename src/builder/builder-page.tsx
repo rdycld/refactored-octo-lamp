@@ -8,6 +8,7 @@ import {
 } from "@builder.io/sdk-react";
 import { CUSTOM_COMPONENTS } from "./builder-registry";
 import { NavBar } from "@@ui/NavBar/NavBar";
+import { Footer } from "@@ui/Footer/Footer";
 
 const BUILDER_API_KEY = import.meta.env.VITE_PUBLIC_BUILDER_KEY;
 const MODEL_NAME = "page";
@@ -46,7 +47,9 @@ export default function BuilderPage() {
   }
 
   return (
-    <>
+    <div
+      style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}
+    >
       <NavBar />
       <Content
         content={content}
@@ -54,6 +57,7 @@ export default function BuilderPage() {
         apiKey={BUILDER_API_KEY}
         customComponents={CUSTOM_COMPONENTS}
       />
-    </>
+      <Footer />
+    </div>
   );
 }
