@@ -6,6 +6,7 @@ import LinkedIn from "@@icons/linked_in.svg?react";
 
 import styles from "./Footer.module.scss";
 import { useEffect, useState } from "react";
+import { ContactForm } from "@@ui/Footer/ContactForm/ContactForm";
 
 const BUILDER_API_KEY = import.meta.env.VITE_PUBLIC_BUILDER_KEY;
 const BUILDER_CND_BASE_URL = import.meta.env.VITE_PUBLIC_BUILDER_CDN_BASE_URL;
@@ -34,8 +35,17 @@ export const Footer = () => {
 
   return (
     <div className={styles.container}>
-      <footer className={styles.footer}>
+      <footer>
         <SectionWrapper variant="overflow">
+          <div className={styles.top}>
+            <p className={styles.text}>
+              Discover how Verity’s drone technology can help your operations
+              fly toward excellence
+            </p>
+            <div className={styles.formContainer}>
+              <ContactForm />
+            </div>
+          </div>
           <div className={styles.siteNavigationContainer}>
             <a href="/">
               <VerityLogoWhite />

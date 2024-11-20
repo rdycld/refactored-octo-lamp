@@ -1,6 +1,8 @@
 declare const classNames: {
   readonly container: "container";
-  readonly footer: "footer";
+  readonly top: "top";
+  readonly text: "text";
+  readonly formContainer: "formContainer";
   readonly siteNavigationContainer: "siteNavigationContainer";
   readonly siteNavigation: "siteNavigation";
   readonly info: "info";

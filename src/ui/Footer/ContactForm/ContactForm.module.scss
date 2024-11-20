@@ -1,0 +1,87 @@
+@use "@cssUtils" as u;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ver-spacing-xl);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+
+  @include u.at-desktop {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--ver-spacing-xl);
+  }
+}
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ver-spacing-2xs);
+  text-transform: uppercase;
+  font-family: "Roboto Mono";
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 184.615% */
+  letter-spacing: 1.04px;
+}
+
+.input {
+  border: none;
+  height: 44px;
+  text-transform: none;
+  background-color: var(--ver-gray-80);
+  border-radius: 2px;
+  color: var(--ver-white);
+  font-family: "Roboto Mono";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 184.615% */
+  letter-spacing: 1.04px;
+}
+
+.textarea {
+  resize: none;
+  height: 150px;
+  text-transform: none;
+  background-color: var(--ver-gray-80);
+  border: none;
+  border-radius: 2px;
+  color: var(--ver-white);
+  font-family: "Roboto Mono";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 184.615% */
+  letter-spacing: 1.04px;
+}
+
+.select {
+  padding: var(--ver-spacing-xs) var(--ver-spacing-m);
+  appearance: none;
+  border: none;
+  background-color: var(--ver-gray-80);
+  height: 44px;
+  border-radius: 2px;
+  color: white;
+  appearance: none;
+  background-image: url("../../../assets/icons/arrow_down.svg");
+  background-repeat: no-repeat;
+  background-position: right 0.7rem top 50%;
+  background-size: 1 auto;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  @include u.at-desktop {
+    display: grid;
+    grid-template-columns: 1fr auto;
+  }
+}
