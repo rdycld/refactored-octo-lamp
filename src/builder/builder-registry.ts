@@ -5,7 +5,7 @@ import type { RegisteredComponent } from "@builder.io/sdk-react";
 import { withChildren } from "@builder.io/react";
 import { TileWithIcon } from "@@builder/components/TileWithIcon/TileWithIcon";
 import { LogoTile } from "@@builder/components/LogoTile/LogoTile";
-import { VideoControl } from "@@builder/components/VideoControl/VideoControl";
+import { Hero } from "@@builder/components/Hero/Hero";
 import { BlogTeaser } from "@@ui/BlogTeaser/BlogTeaser";
 
 export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
@@ -247,14 +247,37 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
     ],
   },
   {
-    component: withChildren(VideoControl),
-    name: "Video Control",
+    component: withChildren(Hero),
+    name: "Hero",
+    inputs: [
+      {
+        type: "text",
+        name: "headline",
+      },
+      {
+        type: "text",
+        name: "text",
+      },
+      {
+        type: "text",
+        name: "ctaUrl",
+      },
+      {
+        type: "text",
+        name: "cta",
+      },
+    ],
     defaultChildren: [
       {
         "@type": "@builder.io/sdk:Element",
         component: {
           name: "Video",
-          options: { loop: "true" },
+          options: { loop: "true", fit: "cover" },
+        },
+        responsiveStyles: {
+          large: {
+            height: "100vh",
+          },
         },
       },
     ],
