@@ -1,6 +1,6 @@
 import { Typography } from "@@typography/Typography";
 import styles from "./BlogCard.module.scss";
-import { Button } from "@@ui/Button/Button";
+import ArrowsIcon from "@@icons/double_arrow_right.svg?react";
 
 type BlogCardProps = {
   url: string;
@@ -26,12 +26,9 @@ export const BlogCard = ({
         <Typography className={styles.teaser} kind="heading5">
           {teaser}
         </Typography>
-        <Button
-          className={styles.button}
-          href={url}
-          variant="hollowDark"
-          asLink
-        ></Button>
+        <a href={url} className={styles.button}>
+          <ArrowsIcon />
+        </a>
       </div>
     </div>
   );

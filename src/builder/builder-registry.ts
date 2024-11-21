@@ -12,6 +12,14 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
   {
     component: BlogTeaser,
     name: "Blog teaser",
+    inputs: [
+      {
+        name: "maxTiles",
+        type: "number",
+        friendlyName: "How many posts",
+        defaultValue: 3,
+      },
+    ],
   },
   {
     component: Button,

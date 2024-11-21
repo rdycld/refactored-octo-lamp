@@ -44,7 +44,12 @@ export const BlogTeaser = ({ tag, maxTiles = 3 }: BlogTeaserProps) => {
   }, [tag, maxTiles]);
 
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      style={{
+        gridTemplateColumns: `repeat(${maxTiles}, 1fr)`,
+      }}
+    >
       {!posts && <div>loading</div>}
       {posts.map((data) => (
         <BlogCard key={data.id} {...data} expectedTag={tag} />
