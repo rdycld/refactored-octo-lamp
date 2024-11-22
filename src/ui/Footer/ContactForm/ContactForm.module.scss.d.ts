@@ -3,8 +3,11 @@ declare const classNames: {
   readonly wrapper: "wrapper";
   readonly bottom: "bottom";
   readonly label: "label";
+  readonly labelError: "labelError";
   readonly input: "input";
+  readonly helperText: "helperText";
   readonly textarea: "textarea";
+  readonly inputError: "inputError";
   readonly select: "select";
 };
 export = classNames;

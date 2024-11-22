@@ -29,11 +29,37 @@
   letter-spacing: 1.04px;
 }
 
+.labelError {
+  color: var(--ver-error);
+}
+
 .input {
   border: none;
   height: 44px;
   text-transform: none;
   background-color: var(--ver-gray-80);
+  border-radius: 2px;
+  color: var(--ver-white);
+  font-family: "Roboto Mono";
+  padding: 8px 16px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 184.615% */
+  letter-spacing: 1.04px;
+}
+
+.helperText {
+  color: var(--ver-error);
+}
+
+.textarea {
+  resize: none;
+  height: 150px;
+  text-transform: none;
+  background-color: var(--ver-gray-80);
+  border: none;
+  padding: 8 16px;
   border-radius: 2px;
   color: var(--ver-white);
   font-family: "Roboto Mono";
@@ -44,20 +70,18 @@
   letter-spacing: 1.04px;
 }
 
-.textarea {
-  resize: none;
-  height: 150px;
-  text-transform: none;
-  background-color: var(--ver-gray-80);
-  border: none;
-  border-radius: 2px;
-  color: var(--ver-white);
+.inputError {
+  border: 1px solid var(--ver-error) !important;
+}
+
+.helperText {
   font-family: "Roboto Mono";
-  font-size: 16px;
+  font-size: 12px;
   font-style: normal;
-  font-weight: 500;
-  line-height: 24px; /* 184.615% */
-  letter-spacing: 1.04px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.96px;
+  text-transform: none;
 }
 
 .select {
