@@ -29,7 +29,7 @@
   font-weight: 500;
   line-height: 32px; /* 133.333% */
   letter-spacing: -0.24px;
-  font-family: "Alliance No.2";
+  font-family: AlianceRegular, sans-serif;
 
   @include u.at-desktop {
     max-width: 500px;
