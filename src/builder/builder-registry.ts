@@ -7,8 +7,10 @@ import { TileWithIcon } from "@@builder/components/TileWithIcon/TileWithIcon";
 import { LogoTile } from "@@builder/components/LogoTile/LogoTile";
 import { Hero } from "@@builder/components/Hero/Hero";
 import { BlogTeaser } from "@@ui/BlogTeaser/BlogTeaser";
+import { customAccordionInfo } from "@@builder/components/Accordion/Accordion";
 
 export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
+  customAccordionInfo,
   {
     component: BlogTeaser,
     name: "Blog teaser",
