@@ -1,9 +1,12 @@
 import VerityLogo from "../../assets/logo_verity_black.svg?react";
-// import MenuIcon from "@@icons/menu.svg?react";
+import MenuIcon from "@@icons/menu.svg?react";
+import Arrow from "@@icons/double_arrow_right.svg?react";
 
 import styles from "./NavBar.module.scss";
 import { useEffect, useRef, useState, type ElementRef } from "react";
 import { NavItem } from "@@ui/NavBar/components/NavItem";
+import clsx from "clsx";
+import { Button } from "@@ui/Button/Button";
 
 // paddingLeft + mobileMenuIconWidth + paddingRight + arbitrary value so it's not all done on the edge
 const menuOffset = 24 + 8 + 8 + 100;
@@ -31,6 +34,10 @@ export const NavBar = () => {
   const [transitioned, setTransitioned] = useState(false);
   const [currentSubMenu, setCurrentSubMenu] = useState("");
 
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [currentMobileSubMenu, setCurrentMobileSubMenu] = useState("");
+
   useEffect(() => {
     const f = async () => {
       const response = await fetch(
@@ -52,6 +59,10 @@ export const NavBar = () => {
   }, []);
 
   useEffect(() => {
+    setIsMobile(window.innerWidth < 992);
+  }, []);
+
+  useEffect(() => {
     if (!navRef.current) return;
     if (!navigation.length || navigation.some((el) => el.width !== 0)) return;
 
@@ -67,6 +78,11 @@ export const NavBar = () => {
 
   useEffect(() => {
     const f = () => {
+      const _isMobile = window.innerWidth < 992;
+
+      if (!_isMobile) setMobileMenuOpen(false);
+      if (isMobile !== _isMobile) setIsMobile(_isMobile);
+
       if (!navRef.current) return;
       if (!navContainerRef.current) return;
 
@@ -102,7 +118,7 @@ export const NavBar = () => {
     return () => {
       window.removeEventListener("resize", f);
     };
-  }, []);
+  }, [isMobile]);
 
   const moveMenu = (e: React.MouseEvent | React.TransitionEvent) => {
     const target = e.target;
@@ -167,28 +183,35 @@ export const NavBar = () => {
           onMouseLeave={handleCursorLeaveNav}
         >
           <VerityLogo className={styles.verityLogo} />
-          <nav ref={navRef} className={styles.navigationWrapper}>
-            {navigation.map((el) =>
-              el.visible ? (
-                <NavItem
-                  url={el.url}
-                  onHover={handleHover}
-                  key={el.name}
-                  name={el.name}
-                  active={el.name === currentSubMenu}
-                  asButton={el.asButton}
-                  withSubMenu={Boolean(el.subItems?.length)}
-                >
-                  {el.name}
-                </NavItem>
-              ) : null
-            )}
-          </nav>
-          {/* <MenuIcon
-            className={styles.mobileMenuIcon}
-            role="button"
-            tabIndex={0}
-          /> */}
+          {!isMobile && (
+            <nav ref={navRef} className={styles.navigationWrapper}>
+              {navigation.map((el) =>
+                el.visible ? (
+                  <NavItem
+                    url={el.url}
+                    onHover={handleHover}
+                    key={el.name}
+                    name={el.name}
+                    active={el.name === currentSubMenu}
+                    asButton={el.asButton}
+                    withSubMenu={Boolean(el.subItems?.length)}
+                  >
+                    {el.name}
+                  </NavItem>
+                ) : null
+              )}
+            </nav>
+          )}
+          {isMobile && (
+            <MenuIcon
+              className={styles.mobileMenuIcon}
+              role="button"
+              tabIndex={0}
+              onClick={() => {
+                setMobileMenuOpen((p) => !p);
+              }}
+            />
+          )}
 
           {(floatingMenuVisible || !transitioned) && (
             <div
@@ -202,6 +225,60 @@ export const NavBar = () => {
               onTransitionEnd={handleTransitionEnd}
             >
               {subMenu}
+            </div>
+          )}
+          {mobileMenuOpen && (
+            <div className={styles.mobileMenuContainer}>
+              <nav className={styles.mobileMenu}>
+                {navigation.map((el) =>
+                  el.asButton ? (
+                    <Button
+                      className={styles.mobileMenuButtonItem}
+                      asLink
+                      href={el.url}
+                    >
+                      {el.name}
+                    </Button>
+                  ) : el.subItems?.length ? (
+                    <div
+                      className={styles.mobileMenuItem}
+                      role="button"
+                      tabIndex={0}
+                      key={el.name}
+                      onClick={() => {
+                        setCurrentMobileSubMenu((p) =>
+                          p === el.name ? "" : el.name
+                        );
+                      }}
+                    >
+                      <div className={styles.mobileMenuSection}>
+                        {el.name}
+                        <Arrow
+                          className={clsx({
+                            [styles.active]: el.name === currentMobileSubMenu,
+                          })}
+                        />
+                      </div>
+                      {currentMobileSubMenu === el.name && (
+                        <div className={styles.mobileSubMenu}>
+                          {el.subItems.map((subItem) => (
+                            <div
+                              key={subItem.name}
+                              className={styles.mobileSubMenuItem}
+                            >
+                              {subItem.name}
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <a className={styles.mobileMenuItem} href={el.url}>
+                      {el.name}
+                    </a>
+                  )
+                )}
+              </nav>
             </div>
           )}
         </div>

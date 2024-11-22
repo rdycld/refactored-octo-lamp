@@ -86,3 +86,70 @@ $desktopSpacing: var(--ver-spacing-m);
   font-size: 13px;
   font-family: "Roboto Mono";
 }
+
+.mobileMenuContainer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: v.$navBarHeightPx;
+  bottom: 0;
+  background-color: red;
+  z-index: 999;
+  padding: 56px 16px 16px;
+  background-color: var(--ver-gray-2);
+}
+
+.mobileMenu {
+  height: 100%;
+  padding: var(--ver-spacing-m);
+  background-color: var(--ver-white);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ver-spacing-xl);
+}
+
+.mobileMenuItem {
+  font-family: "Roboto Mono";
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 184.615% */
+  letter-spacing: 1.04px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ver-gray-96);
+  cursor: pointer;
+}
+
+.mobileMenuSection {
+  display: flex;
+  align-items: center;
+  gap: var(--ver-spacing-xs);
+}
+
+.active {
+  transform: rotate(90deg);
+}
+
+.mobileSubMenu {
+  padding-top: var(--ver-spacing-xl);
+  padding-left: var(--ver-spacing-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ver-spacing-xl);
+}
+
+.mobileSubMenuItem {
+  cursor: pointer;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.16px;
+  text-transform: none;
+}
+
+.mobileMenuButtonItem {
+  margin-top: auto;
+}
