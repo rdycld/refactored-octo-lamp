@@ -51,7 +51,7 @@
   }
 }
 
-.content {
+.backdrop {
   position: absolute;
   top: 0;
   left: 0%;
@@ -60,18 +60,24 @@
   z-index: 2;
   padding: 0 var(--ver-spacing-m);
 
-  flex-direction: column;
-  display: flex;
-  gap: 40px;
-
-  justify-content: center;
-  align-items: start;
   background: radial-gradient(
     147.91% 106.85% at 0% 100%,
     rgba(97, 75, 218, 0.1) 0%,
     rgba(27, 21, 61, 0.35) 49.05%,
     rgba(0, 0, 0, 0.6) 100%
   );
+}
+
+.content {
+  max-width: v.$containerWideWidthPx;
+  margin: auto;
+  height: 100%;
+  flex-direction: column;
+  display: flex;
+  gap: 40px;
+
+  justify-content: center;
+  align-items: start;
 }
 
 .textWrapper {

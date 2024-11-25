@@ -5,6 +5,7 @@ declare const classNames: {
   readonly hero: "hero";
   readonly text: "text";
   readonly buttonsWrapper: "buttonsWrapper";
+  readonly backdrop: "backdrop";
   readonly content: "content";
   readonly textWrapper: "textWrapper";
   readonly headline: "headline";
