@@ -38,7 +38,7 @@ export const VideoWrapper = ({ children }: VideoWrapperProps) => {
     return () => {
       clearInterval(timerId);
     };
-  });
+  }, [paused, video]);
 
   const handleClick = () => {
     if (!video) return;
@@ -55,22 +55,21 @@ export const VideoWrapper = ({ children }: VideoWrapperProps) => {
   return (
     <div className={styles.container} ref={containerRef}>
       {children}
-      {video && (
-        <div className={styles.control}>
-          <div
-            onClick={handleClick}
-            role="button"
-            tabIndex={0}
-            className={styles.button}
-          >
-            {paused ? <Play /> : "xx"}
-          </div>
 
-          <p className={styles.time}>
-            {humanizeTime(paused ? video.duration : currentTime)}
-          </p>
+      <div className={styles.control}>
+        <div
+          onClick={handleClick}
+          role="button"
+          tabIndex={0}
+          className={styles.button}
+        >
+          {paused ? <Play /> : "xx"}
         </div>
-      )}
+
+        <p className={styles.time}>
+          {humanizeTime(paused && video ? video.duration : currentTime)}
+        </p>
+      </div>
     </div>
   );
 };
