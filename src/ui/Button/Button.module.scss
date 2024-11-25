@@ -147,3 +147,38 @@
     }
   }
 }
+.hollowPurple {
+  background-color: transparent;
+  border: 1px solid var(--ver-purple-40);
+  color: var(--ver-purple-40);
+
+  & > .spacer {
+    background: var(--ver-purple-40);
+  }
+
+  &:hover {
+    border-color: var(--ver-purple-30);
+    color: var(--ver-purple-30);
+
+    & > .spacer {
+      background: var(--ver-purple-30);
+    }
+
+    & > .icon {
+      fill: var(--ver-white);
+    }
+  }
+
+  &:disabled {
+    border-color: var(--ver-gray-40);
+    color: var(--ver-gray-40);
+
+    & > .spacer {
+      background: var(--ver-gray-60);
+    }
+
+    & > .icon {
+      fill: var(--ver-gray-40);
+    }
+  }
+}

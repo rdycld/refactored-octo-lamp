@@ -8,5 +8,6 @@ declare const classNames: {
   readonly full: "full";
   readonly hollow: "hollow";
   readonly hollowDark: "hollowDark";
+  readonly hollowPurple: "hollowPurple";
 };
 export = classNames;

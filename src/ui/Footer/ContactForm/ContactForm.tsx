@@ -135,7 +135,7 @@ export const ContactForm = () => {
         </select>
       </label>
       <div className={styles.bottom}>
-        <p>
+        <p style={{ fontFamily: "Robot, sans-serif" }}>
           By submitting this I confirm that read and understand{" "}
           <a href="/">Privacy Policy.</a>
         </p>

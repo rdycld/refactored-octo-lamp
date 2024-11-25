@@ -6,7 +6,7 @@ import DoubleArrowRight from "@@icons/double_arrow_right.svg?react";
 type Common = {
   children?: React.ReactNode;
   size?: "small" | "normal";
-  variant?: "full" | "hollow" | "hollowDark";
+  variant?: "full" | "hollow" | "hollowDark" | "hollowPurple";
   disabled?: boolean;
   text?: string;
   className?: string;

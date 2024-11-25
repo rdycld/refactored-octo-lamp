@@ -8,9 +8,112 @@ import { LogoTile } from "@@builder/components/LogoTile/LogoTile";
 import { Hero } from "@@builder/components/Hero/Hero";
 import { BlogTeaser } from "@@ui/BlogTeaser/BlogTeaser";
 import { customAccordionInfo } from "@@builder/components/Accordion/Accordion";
+import { Testimonials } from "@@builder/components/Testimonials/Testimonials";
+import { Tabs } from "@@builder/components/Tabs/Tabs";
 
 export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
   customAccordionInfo,
+  {
+    component: Tabs,
+    name: "Image Tabs",
+    inputs: [
+      {
+        name: "text",
+        type: "string",
+      },
+      {
+        name: "tabs",
+        type: "list",
+        subFields: [
+          {
+            name: "image",
+            friendlyName: " Image",
+            type: "file",
+            allowedFileTypes: ["jpeg", "jpg", "png", "svg"],
+            required: true,
+          },
+          {
+            name: "title",
+            type: "string",
+            required: true,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    component: Testimonials,
+    name: "Testimonials",
+    inputs: [
+      {
+        name: "testimonials",
+        type: "list",
+        defaultValue: [],
+        subFields: [
+          {
+            name: "logo",
+            friendlyName: "Logo Image",
+            type: "file",
+            allowedFileTypes: ["jpeg", "jpg", "png", "svg"],
+            required: true,
+          },
+          {
+            name: "logoSelected",
+            friendlyName: "Logo Image when selected",
+            type: "file",
+            allowedFileTypes: ["jpeg", "jpg", "png", "svg"],
+          },
+          {
+            friendlyName: "Testimonial text",
+            name: "text",
+            type: "string",
+            required: true,
+          },
+          {
+            friendlyName: "Stats",
+            name: "stats",
+            type: "list",
+            defaultValue: [],
+            subFields: [
+              {
+                name: "value",
+                type: "string",
+              },
+              {
+                name: "description",
+                type: "string",
+              },
+            ],
+          },
+          {
+            friendlyName: "Url to full story",
+            name: "ctaUrl",
+            type: "string",
+            required: true,
+          },
+          {
+            friendlyName: "Authors name",
+            name: "authorName",
+            type: "string",
+            required: true,
+          },
+          {
+            friendlyName: "Authors position",
+            name: "authorPosition",
+            type: "string",
+            required: true,
+          },
+          {
+            friendlyName: "Authors photo",
+            name: "authorPhoto",
+            type: "file",
+            allowedFileTypes: ["jpeg", "jpg", "png", "svg"],
+            required: true,
+          },
+        ],
+      },
+    ],
+  },
   {
     component: BlogTeaser,
     name: "Blog teaser",

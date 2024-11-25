@@ -1,0 +1,21 @@
+declare const classNames: {
+  readonly container: "container";
+  readonly images: "images";
+  readonly testimonials: "testimonials";
+  readonly stats: "stats";
+  readonly image: "image";
+  readonly imageActive: "imageActive";
+  readonly testimonialContainer: "testimonialContainer";
+  readonly testimonial: "testimonial";
+  readonly stat: "stat";
+  readonly statValue: "statValue";
+  readonly statDescription: "statDescription";
+  readonly text: "text";
+  readonly bottom: "bottom";
+  readonly author: "author";
+  readonly authorPhoto: "authorPhoto";
+  readonly authorInfo: "authorInfo";
+  readonly authorName: "authorName";
+  readonly authorTitle: "authorTitle";
+};
+export = classNames;
