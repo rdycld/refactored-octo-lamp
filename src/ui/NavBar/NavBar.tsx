@@ -182,7 +182,9 @@ export const NavBar = () => {
           className={styles.content}
           onMouseLeave={handleCursorLeaveNav}
         >
-          <VerityLogo className={styles.verityLogo} />
+          <a href="/">
+            <VerityLogo className={styles.verityLogo} />
+          </a>
           {!isMobile && (
             <nav ref={navRef} className={styles.navigationWrapper}>
               {navigation.map((el) =>

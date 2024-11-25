@@ -4,20 +4,15 @@ import styles from "./Hero.module.scss";
 import clsx from "clsx";
 import { Button } from "@@ui/Button/Button";
 
-type VideoControlProps = {
+type HeroProps = {
   children: React.ReactNode;
   headline: string;
   text: string;
   cta: string;
   ctaUrl: string;
 };
-export const Hero = ({
-  children,
-  headline,
-  text,
-  cta,
-  ctaUrl,
-}: VideoControlProps) => {
+
+export const Hero = ({ children, headline, text, cta, ctaUrl }: HeroProps) => {
   const containerRef = useRef<ElementRef<"div">>(null);
   const [paused, setPaused] = useState(true);
 

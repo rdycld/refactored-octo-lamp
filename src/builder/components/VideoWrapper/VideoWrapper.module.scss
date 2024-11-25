@@ -1,0 +1,26 @@
+.container {
+  position: relative;
+}
+
+.control {
+  background-color: var(--ver-gray-96);
+  padding: 32px 40px;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.button {
+  width: 56px;
+  height: 56px;
+  border-radius: 100%;
+  border: 1px solid var(--ver-white);
+  margin-bottom: var(--ver-spacing-s);
+}
+
+.time {
+  font-family: "Robot Mono", sans-serif;
+  color: var(--ver-white);
+  text-align: center;
+}

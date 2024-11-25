@@ -10,6 +10,7 @@ import { BlogTeaser } from "@@ui/BlogTeaser/BlogTeaser";
 import { customAccordionInfo } from "@@builder/components/Accordion/Accordion";
 import { Testimonials } from "@@builder/components/Testimonials/Testimonials";
 import { Tabs } from "@@builder/components/Tabs/Tabs";
+import { VideoWrapper } from "@@builder/components/VideoWrapper/VideoWrapper";
 
 export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
   customAccordionInfo,
@@ -392,6 +393,24 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
             height: "100vh",
           },
         },
+      },
+    ],
+  },
+  {
+    component: withChildren(VideoWrapper),
+    name: "VideoWrapper",
+    defaultChildren: [
+      {
+        "@type": "@builder.io/sdk:Element",
+        component: {
+          name: "Video",
+          options: { loop: "true", fit: "cover" },
+        },
+        // responsiveStyles: {
+        //   large: {
+        //     height: "100vh",
+        //   },
+        // },
       },
     ],
   },
