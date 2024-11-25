@@ -106,7 +106,15 @@
 
 .bottom {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: var(--ver-spacing-xl);
+  align-items: flex-start;
+
+  @include u.at-desktop {
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+  }
 }
 
 .author {

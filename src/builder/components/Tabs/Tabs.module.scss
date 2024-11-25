@@ -31,14 +31,13 @@
   border-radius: 12px;
   min-height: 300px;
   max-height: 300px;
+  margin-bottom: 64px;
 
   @include u.at-desktop {
     width: 60%;
     height: 430px;
     max-height: unset;
   }
-
-  margin-bottom: 64px;
 }
 
 .slides {
