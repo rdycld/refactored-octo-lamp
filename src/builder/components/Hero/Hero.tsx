@@ -1,10 +1,4 @@
-import {
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-  type ElementRef,
-} from "react";
+import { useEffect, useRef, useState, type ElementRef } from "react";
 
 import styles from "./Hero.module.scss";
 import clsx from "clsx";
@@ -21,34 +15,28 @@ type HeroProps = {
 export const Hero = ({ children, headline, text, cta, ctaUrl }: HeroProps) => {
   const containerRef = useRef<ElementRef<"div">>(null);
   const [paused, setPaused] = useState(true);
-  const [x, sx] = useState(true);
-  const init = useRef(true);
 
-  let video: HTMLVideoElement | undefined = undefined;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const videoRef = useRef<any>(null);
 
-  useLayoutEffect(() => {
-    if (init.current) return;
-
+  useEffect(() => {
     if (containerRef.current) {
       const videos =
         containerRef.current.getElementsByClassName("builder-video");
       if (videos[0] && videos[0] instanceof HTMLVideoElement) {
-        video = videos[0];
-
-        init.current = false;
-        sx((p) => !p);
+        videoRef.current = videos[0];
       }
     }
-  }, []);
+  }, [containerRef]);
 
   const handleClick = () => {
-    if (!video) return;
+    if (!videoRef.current) return;
 
-    if (video.paused) {
-      video.play();
+    if (videoRef.current.paused) {
+      videoRef.current.play();
       setPaused(false);
     } else {
-      video.pause();
+      videoRef.current.pause();
       setPaused(true);
     }
   };
