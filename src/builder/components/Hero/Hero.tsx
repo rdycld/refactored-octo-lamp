@@ -1,4 +1,10 @@
-import { useRef, useState, type ElementRef } from "react";
+import {
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+  type ElementRef,
+} from "react";
 
 import styles from "./Hero.module.scss";
 import clsx from "clsx";
@@ -15,8 +21,25 @@ type HeroProps = {
 export const Hero = ({ children, headline, text, cta, ctaUrl }: HeroProps) => {
   const containerRef = useRef<ElementRef<"div">>(null);
   const [paused, setPaused] = useState(true);
+  const [x, sx] = useState(true);
+  const init = useRef(true);
 
   let video: HTMLVideoElement | undefined = undefined;
+
+  useLayoutEffect(() => {
+    if (init.current) return;
+
+    if (containerRef.current) {
+      const videos =
+        containerRef.current.getElementsByClassName("builder-video");
+      if (videos[0] && videos[0] instanceof HTMLVideoElement) {
+        video = videos[0];
+
+        init.current = false;
+        sx((p) => !p);
+      }
+    }
+  }, []);
 
   const handleClick = () => {
     if (!video) return;
@@ -29,13 +52,6 @@ export const Hero = ({ children, headline, text, cta, ctaUrl }: HeroProps) => {
       setPaused(true);
     }
   };
-
-  if (containerRef.current) {
-    const videos = containerRef.current.getElementsByClassName("builder-video");
-    if (videos[0] && videos[0] instanceof HTMLVideoElement) {
-      video = videos[0];
-    }
-  }
 
   return (
     <div className={clsx(styles.container, styles.hero)} ref={containerRef}>
