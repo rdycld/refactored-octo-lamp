@@ -40,41 +40,39 @@ export const Hero = ({ children, headline, text, cta, ctaUrl }: HeroProps) => {
   return (
     <div className={clsx(styles.container, styles.hero)} ref={containerRef}>
       {children}
-      {video && (
-        <div className={styles.backdrop}>
-          <div className={styles.content}>
-            <div className={styles.textWrapper}>
-              {headline && <div className={styles.headline}>{headline}</div>}
-              {text && <div className={styles.text}>{text}</div>}
-            </div>
-            <div className={styles.buttonsWrapper}>
-              {cta && ctaUrl && (
-                <Button asLink href={ctaUrl}>
-                  {cta}
-                </Button>
-              )}
-              <div
-                className={styles.playButton}
-                role="button"
-                tabIndex={0}
-                onClick={handleClick}
-              >
-                watch video
-              </div>
-            </div>
-            {!paused && (
-              <div
-                role="button"
-                tabIndex={0}
-                onClick={handleClick}
-                className={clsx(styles.button)}
-              >
-                <div role="presentation" className={styles.pause}></div>
-              </div>
-            )}
+      <div className={styles.backdrop}>
+        <div className={styles.content}>
+          <div className={styles.textWrapper}>
+            {headline && <div className={styles.headline}>{headline}</div>}
+            {text && <div className={styles.text}>{text}</div>}
           </div>
+          <div className={styles.buttonsWrapper}>
+            {cta && ctaUrl && (
+              <Button asLink href={ctaUrl}>
+                {cta}
+              </Button>
+            )}
+            <div
+              className={styles.playButton}
+              role="button"
+              tabIndex={0}
+              onClick={handleClick}
+            >
+              watch video
+            </div>
+          </div>
+          {!paused && (
+            <div
+              role="button"
+              tabIndex={0}
+              onClick={handleClick}
+              className={clsx(styles.button)}
+            >
+              <div role="presentation" className={styles.pause}></div>
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </div>
   );
 };
