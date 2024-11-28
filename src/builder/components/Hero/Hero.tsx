@@ -15,9 +15,7 @@ type HeroProps = {
 export const Hero = ({ children, headline, text, cta, ctaUrl }: HeroProps) => {
   const containerRef = useRef<ElementRef<"div">>(null);
   const [paused, setPaused] = useState(true);
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const videoRef = useRef<any>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
     if (containerRef.current) {

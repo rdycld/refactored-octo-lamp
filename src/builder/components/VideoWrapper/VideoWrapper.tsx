@@ -19,35 +19,38 @@ export const VideoWrapper = ({ children }: VideoWrapperProps) => {
   const [paused, setPaused] = useState(true);
   const [currentTime, setCurrentTime] = useState(0);
 
-  let video: HTMLVideoElement | undefined = undefined;
-
-  if (containerRef.current) {
-    const videos = containerRef.current.getElementsByClassName("builder-video");
-    if (videos[0] && videos[0] instanceof HTMLVideoElement) {
-      video = videos[0];
-    }
-  }
+  const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
-    if (paused || !video) return;
+    if (containerRef.current) {
+      const videos =
+        containerRef.current.getElementsByClassName("builder-video");
+      if (videos[0] && videos[0] instanceof HTMLVideoElement) {
+        videoRef.current = videos[0];
+      }
+    }
+  }, [containerRef]);
+
+  useEffect(() => {
+    if (paused || !videoRef.current) return;
 
     const timerId = setInterval(() => {
-      setCurrentTime(video.currentTime);
+      if (videoRef.current) setCurrentTime(videoRef.current.currentTime);
     }, 1000);
 
     return () => {
       clearInterval(timerId);
     };
-  }, [paused, video]);
+  }, [paused, videoRef]);
 
   const handleClick = () => {
-    if (!video) return;
+    if (!videoRef.current) return;
 
-    if (video.paused) {
-      video.play();
+    if (videoRef.current.paused) {
+      videoRef.current.play();
       setPaused(false);
     } else {
-      video.pause();
+      videoRef.current.pause();
       setPaused(true);
     }
   };
@@ -67,7 +70,9 @@ export const VideoWrapper = ({ children }: VideoWrapperProps) => {
         </div>
 
         <p className={styles.time}>
-          {humanizeTime(paused && video ? video.duration : currentTime)}
+          {humanizeTime(
+            paused && videoRef.current ? videoRef.current.duration : currentTime
+          )}
         </p>
       </div>
     </div>
