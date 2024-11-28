@@ -35,5 +35,7 @@ h5 {
 }
 
 .hero-video {
-  height: 100vh !important;
+  video {
+    height: 100vh !important;
+  }
 }
