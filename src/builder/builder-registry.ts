@@ -229,6 +229,11 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
             lineHeight: "52px",
             fontFamily: "Roboto, sans-serif",
           },
+          medium: {
+            fontSize: "32px",
+            lineHeight: "40px",
+            fontFamily: "Roboto, sans-serif",
+          },
         },
       },
     ],
