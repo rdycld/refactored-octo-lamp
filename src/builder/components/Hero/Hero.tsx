@@ -10,9 +10,17 @@ type HeroProps = {
   text: string;
   cta: string;
   ctaUrl: string;
+  align?: "left" | "center";
 };
 
-export const Hero = ({ children, headline, text, cta, ctaUrl }: HeroProps) => {
+export const Hero = ({
+  children,
+  headline,
+  text,
+  cta,
+  ctaUrl,
+  align = "left",
+}: HeroProps) => {
   const containerRef = useRef<ElementRef<"div">>(null);
   const [paused, setPaused] = useState(true);
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -43,12 +51,20 @@ export const Hero = ({ children, headline, text, cta, ctaUrl }: HeroProps) => {
     <div className={clsx(styles.container, styles.hero)} ref={containerRef}>
       {children}
       <div className={styles.backdrop}>
-        <div className={styles.content}>
+        <div
+          className={clsx(styles.content, {
+            [styles.contentCenter]: align === "center",
+          })}
+        >
           <div className={styles.textWrapper}>
             {headline && <div className={styles.headline}>{headline}</div>}
             {text && <div className={styles.text}>{text}</div>}
           </div>
-          <div className={styles.buttonsWrapper}>
+          <div
+            className={clsx(styles.buttonsWrapper, {
+              [styles.buttonsCenter]: align === "center",
+            })}
+          >
             {cta && ctaUrl && (
               <Button asLink href={ctaUrl}>
                 {cta}

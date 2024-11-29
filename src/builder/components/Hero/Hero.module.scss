@@ -81,11 +81,17 @@
   align-items: start;
 }
 
+.contentCenter {
+  align-items: center;
+  text-align: center;
+}
+
 .textWrapper {
   display: flex;
   flex-direction: column;
   gap: var(--ver-spacing-m);
 }
+
 .headline {
   color: var(--ver-purple-40);
   font-family: "Roboto Mono";
@@ -124,6 +130,12 @@
 
   @include u.at-desktop {
     flex-direction: row;
+  }
+}
+
+.buttonsCenter {
+  @include u.at-desktop {
+    justify-content: center;
   }
 }
 

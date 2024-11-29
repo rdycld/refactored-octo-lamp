@@ -380,6 +380,17 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
         type: "text",
         name: "cta",
       },
+      {
+        type: "text",
+        name: "cta",
+      },
+      {
+        name: "align",
+        type: "string",
+        friendlyName: "align content",
+        enum: ["left", "center"],
+        defaultValue: "left",
+      },
     ],
     defaultChildren: [
       {
