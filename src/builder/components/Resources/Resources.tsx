@@ -8,46 +8,46 @@ import { BlogCard } from "@@ui/BlogCard/BlogCard";
 
 const typeFilterOptions = [
   {
-    value: "blog",
+    value: "Blog",
     label: "Blog",
   },
   {
-    value: "whitepaper",
+    value: "Whitepaper",
     label: "Whitepaper",
   },
   {
-    value: "video",
+    value: "Video",
     label: "Video",
   },
   {
-    value: "event",
+    value: "Event",
     label: "Event",
   },
   {
-    value: "press",
+    value: "Press",
     label: "Press",
   },
 ];
 
 const industryFilterOptions = [
   {
-    value: "3pl",
+    value: "3PL",
     label: "3PL",
   },
   {
-    value: "retailers",
+    value: "Retailers",
     label: "Retailers",
   },
   {
-    value: "foodAndBeverages",
+    value: "Food & Beverages",
     label: "Food & Beverages",
   },
   {
-    value: "fashionAndApparel",
+    value: "Fashion & Apparel",
     label: "Fashion & Apparel",
   },
   {
-    value: "manufacturing",
+    value: "Manufacturing",
     label: "Manufacturing",
   },
 ];
@@ -78,7 +78,7 @@ const topicFilterOptions = [
     label: "Logistics and Operations",
   },
   {
-    value: "automation",
+    value: "Automation",
     label: "Automation",
   },
   {
