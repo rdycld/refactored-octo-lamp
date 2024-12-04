@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState, type ElementRef } from "react";
 import CloseIcon from "@@icons/close.svg?react";
+import ArrowIcon from "@@icons/arrow_down_black.svg?react";
 
 import styles from "./MultiSelect.module.scss";
+import clsx from "clsx";
 
 type MultiSelectProps = {
   options: { value: string; label: string }[];
@@ -62,6 +64,11 @@ export const MultiSelect = ({ options, onChange }: MultiSelectProps) => {
       tabIndex={0}
       onClick={() => setOpen(true)}
     >
+      <ArrowIcon
+        className={clsx(styles.chevron, {
+          [styles.chevronActive]: open,
+        })}
+      />
       <div className={styles.chips}>
         {value.length > 0 ? (
           <>
@@ -69,8 +76,18 @@ export const MultiSelect = ({ options, onChange }: MultiSelectProps) => {
               .split(",")
               .slice(0, 2)
               .map((v) => (
-                <div className={styles.chip} key={v}>
-                  {getLabelFromValue(v, options)}
+                <div
+                  className={styles.chip}
+                  style={{
+                    maxWidth: `${
+                      Math.max(100 / value.split(",").length, 33) - 3
+                    }%`,
+                  }}
+                  key={v}
+                >
+                  <p title={getLabelFromValue(v, options)}>
+                    {getLabelFromValue(v, options)}
+                  </p>
                   <CloseIcon
                     onClick={() => handleChangeOption(v)}
                     className={styles.iconButton}
@@ -79,7 +96,14 @@ export const MultiSelect = ({ options, onChange }: MultiSelectProps) => {
               ))}
 
             {value.split(",").length > 2 && (
-              <div className={styles.chip}>
+              <div
+                title={value
+                  .split(",")
+                  .slice(2)
+                  .map((el) => getLabelFromValue(el, options))
+                  .join(", ")}
+                className={styles.chip}
+              >
                 +{value.split(",").length - 2}
                 <CloseIcon
                   onClick={() =>
@@ -91,7 +115,7 @@ export const MultiSelect = ({ options, onChange }: MultiSelectProps) => {
             )}
           </>
         ) : (
-          <div>Select</div>
+          "Select"
         )}
       </div>
       {open && (

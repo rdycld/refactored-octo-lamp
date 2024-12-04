@@ -1,0 +1,28 @@
+@use "@cssUtils" as u;
+
+.container {
+  background-color: transparent;
+}
+
+.desktopFilters {
+  width: 100%;
+  display: flex;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.clearAllButton {
+  font-family: "Roboto Mono";
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+.results {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+
+  @include u.at-desktop {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

@@ -11,9 +11,14 @@ import { customAccordionInfo } from "@@builder/components/Accordion/Accordion";
 import { Testimonials } from "@@builder/components/Testimonials/Testimonials";
 import { Tabs } from "@@builder/components/Tabs/Tabs";
 import { VideoWrapper } from "@@builder/components/VideoWrapper/VideoWrapper";
+import { Resources } from "@@builder/components/Resources/Resources";
 
 export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
   customAccordionInfo,
+  {
+    component: Resources,
+    name: "Resources",
+  },
   {
     component: Tabs,
     name: "Image Tabs",

@@ -14,7 +14,7 @@ const BUILDER_API_KEY = import.meta.env.VITE_PUBLIC_BUILDER_KEY;
 const MODEL_NAME = "page";
 
 const getModelName = (pathname: string) => {
-  return pathname.includes("/blog/") ? "blog" : "page";
+  return pathname.includes("/resources/") ? "resources" : "page";
 };
 
 export default function BuilderPage() {

@@ -1,3 +1,5 @@
+@use "@cssUtils" as u;
+
 .container {
   padding: 8px 16px;
   border: 1px solid var(--ver-gray-40);
@@ -5,9 +7,15 @@
   position: relative;
   background-color: var(--ver-gray-2);
   font-family: "Roboto";
+  height: 46px;
+  width: 100%;
 
   &:focus {
     outline: 2px solid var(--ver-purple-50);
+  }
+
+  @include u.at-desktop {
+    width: 300px;
   }
 }
 
@@ -58,11 +66,14 @@
   gap: 12px;
 
   align-items: center;
+  cursor: pointer;
 }
 
 .chips {
   display: flex;
   gap: 4px;
+  height: 100%;
+  align-items: center;
 }
 
 .chip {
@@ -77,8 +88,28 @@
   line-height: 20px; /* 142.857% */
   letter-spacing: -0.14px;
   padding: 4px 8px;
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+
+  p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }
 
 .iconButton {
   cursor: pointer;
+}
+
+.chevron {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  right: 0px;
+}
+
+.chevronActive {
+  transform: translate(-50%, -50%) rotate(180deg);
 }

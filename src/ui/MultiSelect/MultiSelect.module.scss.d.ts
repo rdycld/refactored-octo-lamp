@@ -7,5 +7,7 @@ declare const classNames: {
   readonly chips: "chips";
   readonly chip: "chip";
   readonly iconButton: "iconButton";
+  readonly chevron: "chevron";
+  readonly chevronActive: "chevronActive";
 };
 export = classNames;
