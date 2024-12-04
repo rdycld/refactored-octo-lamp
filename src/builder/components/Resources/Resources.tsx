@@ -3,8 +3,17 @@ const BUILDER_CND_BASE_URL = import.meta.env.VITE_PUBLIC_BUILDER_CDN_BASE_URL;
 
 import { MultiSelect } from "@@ui/MultiSelect/MultiSelect";
 import styles from "./Resources.module.scss";
-import { useEffect, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type ElementRef,
+} from "react";
 import { BlogCard } from "@@ui/BlogCard/BlogCard";
+import clsx from "clsx";
+import { Button } from "@@ui/Button/Button";
+import CloseIcon from "@@icons/close.svg?react";
 
 const typeFilterOptions = [
   {
@@ -100,7 +109,26 @@ export const Resources = () => {
   const [typeFilter, setTypeFilter] = useState("");
   const [topicFilter, setTopicFilter] = useState("");
   const [industryFilter, setIndustryFilter] = useState("");
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const drawerRef = useRef<ElementRef<"div">>(null);
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [data, setData] = useState<any[]>([]);
+
+  useEffect(() => {
+    const f = (e: MouseEvent) => {
+      if (!drawerRef.current) return;
+      if (e.target instanceof Node && !drawerRef.current.contains(e.target)) {
+        setDrawerOpen(false);
+      }
+    };
+
+    window.addEventListener("click", f, true);
+
+    return () => {
+      window.removeEventListener("click", f, true);
+    };
+  }, [drawerRef]);
 
   useEffect(() => {
     const f = async () => {
@@ -133,7 +161,8 @@ export const Resources = () => {
     f();
   }, [industryFilter, topicFilter, typeFilter]);
 
-  const handleChangeTopic = (e: string) => {
+  const handleSyncTopic = useCallback((e: string) => {
+    console.log("xd?");
     if (!e.length) {
       setTopicFilter("");
       return;
@@ -145,9 +174,9 @@ export const Resources = () => {
         .map((x) => `"${x}"`)
         .join(",")
     );
-  };
+  }, []);
 
-  const handleChangeType = (e: string) => {
+  const handleSyncType = useCallback((e: string) => {
     if (!e.length) {
       setTypeFilter("");
       return;
@@ -159,9 +188,9 @@ export const Resources = () => {
         .map((x) => `"${x}"`)
         .join(",")
     );
-  };
+  }, []);
 
-  const handleChangeIndustry = (e: string) => {
+  const handleSyncIndustry = useCallback((e: string) => {
     if (!e.length) {
       setIndustryFilter("");
       return;
@@ -173,6 +202,29 @@ export const Resources = () => {
         .map((x) => `"${x}"`)
         .join(",")
     );
+  }, []);
+
+  const handleChangeFilters = (value: string, key: string) => {
+    const f = (setter: React.Dispatch<React.SetStateAction<string>>) => {
+      setter((prev) => {
+        const asArr = prev.split(",");
+        if (asArr.includes(value))
+          return asArr.filter((el) => el !== value).join(",");
+        if (prev.length) return `${prev},${value}`;
+        else return value;
+      });
+    };
+    switch (key) {
+      case "topic":
+        f(setTopicFilter);
+        break;
+      case "type":
+        f(setTypeFilter);
+        break;
+      case "industry":
+        f(setIndustryFilter);
+        break;
+    }
   };
 
   const handleClearAll = () => {
@@ -182,15 +234,12 @@ export const Resources = () => {
   return (
     <div key={key} className={styles.container}>
       <div className={styles.desktopFilters}>
-        <MultiSelect options={typeFilterOptions} onChange={handleChangeType} />
+        <MultiSelect options={typeFilterOptions} onChange={handleSyncType} />
         <MultiSelect
           options={industryFilterOptions}
-          onChange={handleChangeIndustry}
+          onChange={handleSyncIndustry}
         />
-        <MultiSelect
-          options={topicFilterOptions}
-          onChange={handleChangeTopic}
-        />
+        <MultiSelect options={topicFilterOptions} onChange={handleSyncTopic} />
         <p
           role="button"
           tabIndex={0}
@@ -199,6 +248,121 @@ export const Resources = () => {
         >
           CLEAR ALL
         </p>
+      </div>
+      <div className={styles.mobileFilters}>
+        <Button
+          onClick={() => {
+            setDrawerOpen(true);
+          }}
+          variant="hollowDark"
+        >
+          Filters (
+          {topicFilter.length
+            ? topicFilter.split(",").length
+            : 0 + typeFilter.length
+            ? typeFilter.split(",").length
+            : 0 + industryFilter.length
+            ? industryFilter.split(",").length
+            : 0}
+          )
+        </Button>
+        {drawerOpen && <div className={styles.backdrop}></div>}
+        <div
+          ref={drawerRef}
+          className={clsx(styles.drawer, { [styles.drawerOpen]: drawerOpen })}
+        >
+          <div className={styles.drawerTop}>
+            <p className={styles.drawerTitle}>Filters</p>
+            <CloseIcon
+              onClick={() => {
+                setDrawerOpen(false);
+              }}
+            />
+          </div>
+          <div className={styles.drawerContent}>
+            <div className={styles.filterSection}>
+              <div className={styles.filterSectionHeader}>
+                content ({typeFilter.length ? typeFilter.split(",").length : 0})
+              </div>
+              {typeFilterOptions.map((option) => (
+                <div
+                  key={option.value}
+                  className={styles.option}
+                  onClick={() => {
+                    handleChangeFilters(`"${option.value}"`, "type");
+                  }}
+                >
+                  <input
+                    type="checkbox"
+                    checked={typeFilter.includes(`"${option.value}"`)}
+                  />
+                  {option.label}
+                </div>
+              ))}
+            </div>
+            <div className={styles.filterSection}>
+              <div className={styles.filterSectionHeader}>
+                industry (
+                {industryFilter.length ? industryFilter.split(",").length : 0})
+              </div>
+              {industryFilterOptions.map((option) => (
+                <div
+                  key={option.value}
+                  className={styles.option}
+                  onClick={() => {
+                    handleChangeFilters(`"${option.value}"`, "industry");
+                  }}
+                >
+                  <input
+                    type="checkbox"
+                    checked={industryFilter.includes(`"${option.value}"`)}
+                  />
+                  {option.label}
+                </div>
+              ))}
+            </div>
+            <div className={styles.filterSection}>
+              <div className={styles.filterSectionHeader}>
+                topic ({topicFilter.length ? topicFilter.split(",").length : 0})
+              </div>
+              {topicFilterOptions.map((option) => (
+                <div
+                  key={option.value}
+                  className={styles.option}
+                  onClick={() => {
+                    handleChangeFilters(`"${option.value}"`, "topic");
+                  }}
+                >
+                  <input
+                    type="checkbox"
+                    checked={topicFilter.includes(`"${option.value}"`)}
+                  />
+                  {option.label}
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className={styles.drawerBottom}>
+            <button
+              onClick={() => {
+                setTypeFilter("");
+                setTopicFilter("");
+                setIndustryFilter("");
+              }}
+              className={styles.clearAllButton}
+            >
+              clear all
+            </button>
+            <button
+              onClick={() => {
+                setDrawerOpen(false);
+              }}
+              className={styles.applyButton}
+            >
+              close
+            </button>
+          </div>
+        </div>
       </div>
       <div className={styles.results}>
         {data.map((el) => (
