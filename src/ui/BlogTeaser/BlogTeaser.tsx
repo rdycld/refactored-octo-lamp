@@ -14,9 +14,9 @@ type BlogTeaserProps = {
 type Post = {
   id: string;
   url: string;
-  headerImage: string;
-  teaser: string;
-  tags: string[];
+  image: string;
+  title: string;
+  typeTag: string[];
 };
 
 export const BlogTeaser = ({ tag, maxTiles = 3 }: BlogTeaserProps) => {
@@ -25,7 +25,7 @@ export const BlogTeaser = ({ tag, maxTiles = 3 }: BlogTeaserProps) => {
   useEffect(() => {
     const f = async () => {
       const response = await fetch(
-        `${BUILDER_CND_BASE_URL}/blog?apiKey=${BUILDER_API_KEY}&limit=${maxTiles}${
+        `${BUILDER_CND_BASE_URL}/resources?apiKey=${BUILDER_API_KEY}&limit=${maxTiles}${
           tag ? `&query.data.tags.$elemMatch='${tag}'` : ""
         }`
       );
@@ -52,7 +52,14 @@ export const BlogTeaser = ({ tag, maxTiles = 3 }: BlogTeaserProps) => {
     >
       {!posts && <div>loading</div>}
       {posts.map((data) => (
-        <BlogCard key={data.id} {...data} expectedTag={tag} />
+        <BlogCard
+          key={data.id}
+          url={data.url}
+          tags={data.typeTag}
+          teaser={data.title}
+          headerImage={data.image}
+          expectedTag={tag}
+        />
       ))}
     </div>
   );

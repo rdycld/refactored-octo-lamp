@@ -155,14 +155,21 @@ export const Resources = () => {
 
       const resources = await response.json();
 
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      setData(resources.results.map((el: any) => ({ ...el.data, id: el.id })));
+      setData(
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        resources.results.map((el: any) => ({
+          ...el.data,
+          id: el.id,
+          industryTag: el.data.industryTag ?? [],
+          topicTag: el.data.topicTag ?? [],
+          typeTag: el.data.typeTag ?? [],
+        }))
+      );
     };
     f();
   }, [industryFilter, topicFilter, typeFilter]);
 
   const handleSyncTopic = useCallback((e: string) => {
-    console.log("xd?");
     if (!e.length) {
       setTopicFilter("");
       return;
@@ -257,13 +264,9 @@ export const Resources = () => {
           variant="hollowDark"
         >
           Filters (
-          {topicFilter.length
-            ? topicFilter.split(",").length
-            : 0 + typeFilter.length
-            ? typeFilter.split(",").length
-            : 0 + industryFilter.length
-            ? industryFilter.split(",").length
-            : 0}
+          {(topicFilter.length ? topicFilter.split(",").length : 0) +
+            (typeFilter.length ? typeFilter.split(",").length : 0) +
+            (industryFilter.length ? industryFilter.split(",").length : 0)}
           )
         </Button>
         {drawerOpen && <div className={styles.backdrop}></div>}

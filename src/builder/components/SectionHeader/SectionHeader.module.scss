@@ -1,4 +1,5 @@
 @use "@cssVars" as v;
+@use "@cssUtils" as u;
 
 .base {
   padding: 16px;
@@ -9,8 +10,8 @@
   align-items: flex-start;
   font-family: AlianceRegular, sans-serif;
 
-  @media screen and (min-width: 1280px) {
-    padding: 0;
+  @include u.at-desktop {
+    margin: 0 15px;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
@@ -19,12 +20,12 @@
 
 .overflow {
   margin: auto;
-  max-width: v.$containerWideWidthPx;
+  max-width: calc(v.$containerWideWidthPx + 30px);
 }
 
 .normal {
   margin: auto;
-  max-width: v.$containerWidthPx;
+  max-width: calc(v.$containerWidthPx + 30px);
 }
 
 .withCta {

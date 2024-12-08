@@ -12,9 +12,29 @@ import { Testimonials } from "@@builder/components/Testimonials/Testimonials";
 import { Tabs } from "@@builder/components/Tabs/Tabs";
 import { VideoWrapper } from "@@builder/components/VideoWrapper/VideoWrapper";
 import { Resources } from "@@builder/components/Resources/Resources";
+import { LogosSlider } from "@@builder/components/LogosSlider/LogosSlider";
 
 export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
   customAccordionInfo,
+  {
+    component: LogosSlider,
+    name: "Logos Slider",
+    inputs: [
+      {
+        name: "images",
+        friendlyName: "Photos",
+        type: "list",
+        subFields: [
+          {
+            name: "image",
+            friendlyName: "Image",
+            type: "file",
+            allowedFileTypes: ["jpeg", "jpg", "png", "svg"],
+          },
+        ],
+      },
+    ],
+  },
   {
     component: Resources,
     name: "Resources",

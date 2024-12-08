@@ -12,6 +12,7 @@
 
 .base {
   font-family: "Roboto Mono";
+  text-decoration: none;
   display: flex;
   gap: var(--ver-spacing-s);
   justify-content: center;
@@ -24,6 +25,7 @@
     color var(--ver-transition-normal),
     border-color var(--ver-transition-normal);
   will-change: background-color, color, border-color;
+  color: var(--ver-purple-60);
 }
 
 .small {

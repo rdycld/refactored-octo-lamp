@@ -121,7 +121,7 @@ export const NavBar = () => {
   }, [isMobile]);
 
   const moveMenu = (e: React.MouseEvent | React.TransitionEvent) => {
-    const target = e.target;
+    const target = e.currentTarget;
     const container = navContainerRef.current;
     const floatingMenu = floatingMenuRef.current;
 
@@ -148,12 +148,11 @@ export const NavBar = () => {
 
   const handleHover = (e: React.MouseEvent, name: string) => {
     setFloatingMenuVisible(true);
-    moveMenu(e);
     setCurrentSubMenu(name);
+    moveMenu(e);
   };
 
   const handleTransitionEnd = (e: React.TransitionEvent) => {
-    moveMenu(e);
     if (e.propertyName === "width") {
       setFloatingMenuVisible(false);
       setTransitioned(true);
@@ -264,12 +263,13 @@ export const NavBar = () => {
                       {currentMobileSubMenu === el.name && (
                         <div className={styles.mobileSubMenu}>
                           {el.subItems.map((subItem) => (
-                            <div
+                            <a
+                              href={subItem.url}
                               key={subItem.name}
                               className={styles.mobileSubMenuItem}
                             >
                               {subItem.name}
-                            </div>
+                            </a>
                           ))}
                         </div>
                       )}
