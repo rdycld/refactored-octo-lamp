@@ -57,8 +57,21 @@ export const Hero = ({
           })}
         >
           <div className={styles.textWrapper}>
-            {headline && <div className={styles.headline}>{headline}</div>}
-            {text && <div className={styles.text}>{text}</div>}
+            {headline && (
+              <div
+                className={clsx(
+                  "label-desktop caption14-mobile",
+                  styles.headline
+                )}
+              >
+                {headline}
+              </div>
+            )}
+            {text && (
+              <div className={clsx("h1-desktop h2-mobile", styles.text)}>
+                {text}
+              </div>
+            )}
           </div>
           <div
             className={clsx(styles.buttonsWrapper, {

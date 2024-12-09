@@ -6,8 +6,19 @@
   }
 }
 
+@mixin max-breakpoint($minWidth) {
+  @media screen and (max-width: $minWidth) {
+    @content;
+  }
+}
+
 @mixin at-desktop {
   @include breakpoint(v.$desktopWidthPx) {
+    @content;
+  }
+}
+@mixin at-mobile {
+  @include max-breakpoint(v.$desktopWidthPx) {
     @content;
   }
 }

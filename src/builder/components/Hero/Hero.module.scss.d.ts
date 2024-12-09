@@ -3,7 +3,6 @@ declare const classNames: {
   readonly pause: "pause";
   readonly container: "container";
   readonly hero: "hero";
-  readonly text: "text";
   readonly buttonsWrapper: "buttonsWrapper";
   readonly buttonsCenter: "buttonsCenter";
   readonly backdrop: "backdrop";
@@ -11,6 +10,7 @@ declare const classNames: {
   readonly contentCenter: "contentCenter";
   readonly textWrapper: "textWrapper";
   readonly headline: "headline";
+  readonly text: "text";
   readonly playButton: "playButton";
 };
 export = classNames;

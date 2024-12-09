@@ -94,31 +94,11 @@
 
 .headline {
   color: var(--ver-purple-40);
-  font-family: "Roboto Mono";
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 24px; /* 171.429% */
-  letter-spacing: 1.12px;
-  text-transform: uppercase;
 }
 
 .text {
   color: var(--ver-white);
-  font-size: 40px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 50px; /* 125% */
-  letter-spacing: -0.4px;
-  font-family: AlianceRegular, sans-serif;
-
-  @include u.at-desktop {
-    font-size: 80px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 70px; /* 87.5% */
-    letter-spacing: -0.8px;
-  }
+  max-width: 991px;
 }
 
 .buttonsWrapper {

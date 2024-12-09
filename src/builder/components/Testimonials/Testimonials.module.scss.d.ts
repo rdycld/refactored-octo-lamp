@@ -3,6 +3,7 @@ declare const classNames: {
   readonly images: "images";
   readonly testimonials: "testimonials";
   readonly stats: "stats";
+  readonly text: "text";
   readonly bottom: "bottom";
   readonly image: "image";
   readonly imageActive: "imageActive";
@@ -11,7 +12,6 @@ declare const classNames: {
   readonly stat: "stat";
   readonly statValue: "statValue";
   readonly statDescription: "statDescription";
-  readonly text: "text";
   readonly author: "author";
   readonly authorPhoto: "authorPhoto";
   readonly authorInfo: "authorInfo";

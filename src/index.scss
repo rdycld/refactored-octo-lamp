@@ -1,6 +1,7 @@
 @use "@@theme/colors";
 @use "@@theme/typography";
 @use "@@theme/spacing";
+@use "@cssUtils" as u;
 
 * {
   box-sizing: border-box;
@@ -37,5 +38,343 @@ h5 {
 .hero-video {
   video {
     height: 100vh !important;
+  }
+}
+
+.h1-mobile {
+  @include u.at-mobile {
+    font-family: AlianceRegular;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px; /* 100% */
+    letter-spacing: -0.5px;
+    color: var(--ver-gray-96);
+  }
+}
+
+.h1-desktop {
+  @include u.at-desktop {
+    font-family: AlianceRegular;
+    font-size: 50px;
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 70px; /* 87.5% */
+    letter-spacing: -0.8px;
+  }
+}
+
+.h2-mobile {
+  @include u.at-mobile {
+    font-family: AlianceRegular;
+    color: var(--ver-gray-96);
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px; /* 125% */
+    letter-spacing: -0.4px;
+  }
+}
+
+.h2-desktop {
+  @include u.at-desktop {
+    font-family: AlianceRegular;
+    color: var(--ver-gray-96);
+    font-size: 58px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 62px; /* 106.897% */
+    letter-spacing: -0.58px;
+  }
+}
+
+.h3-mobile {
+  @include u.at-mobile {
+    font-family: AlianceRegular;
+    color: var(--ver-gray-96);
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px; /* 125% */
+    letter-spacing: -0.32px;
+  }
+}
+
+.h3-desktop {
+  @include u.at-desktop {
+    font-family: AlianceRegular;
+    color: var(--ver-gray-96);
+    font-size: 42px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 52px; /* 123.81% */
+    letter-spacing: -0.42px;
+  }
+}
+
+.h4-mobile {
+  @include u.at-mobile {
+    font-family: AlianceRegular;
+    color: var(--ver-gray-96);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 32px; /* 133.333% */
+    letter-spacing: -0.24px;
+  }
+}
+
+.h4-desktop {
+  @include u.at-desktop {
+    font-family: AlianceRegular;
+    color: var(--ver-gray-96);
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px; /* 125% */
+    letter-spacing: -0.32px;
+  }
+}
+
+.h5-mobile {
+  @include u.at-mobile {
+    font-family: AlianceRegular;
+    color: var(--ver-gray-96);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px; /* 140% */
+    letter-spacing: -0.2px;
+  }
+}
+
+.h5-desktop {
+  @include u.at-desktop {
+    font-family: AlianceRegular;
+    color: var(--ver-gray-96);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 32px; /* 133.333% */
+    letter-spacing: -0.24px;
+  }
+}
+
+.h6-mobile {
+  @include u.at-mobile {
+    font-family: AlianceRegular;
+    color: var(--ver-gray-96);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px; /* 175% */
+    letter-spacing: -0.16px;
+  }
+}
+
+.h6-desktop {
+  @include u.at-desktop {
+    font-family: AlianceRegular;
+    color: var(--ver-gray-96);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 32px; /* 200% */
+    letter-spacing: -0.16px;
+  }
+}
+
+.body1-mobile {
+  @include u.at-mobile {
+    color: var(--ver-gray-96);
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px; /* 133.333% */
+    letter-spacing: -0.24px;
+  }
+}
+
+.body1-desktop {
+  @include u.at-desktop {
+    color: var(--ver-gray-96);
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px; /* 133.333% */
+    letter-spacing: -0.24px;
+  }
+}
+
+.body2-mobile {
+  @include u.at-mobile {
+    color: var(--ver-gray-96);
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 120% */
+    letter-spacing: -0.2px;
+  }
+}
+
+.body2-desktop {
+  @include u.at-desktop {
+    color: var(--ver-gray-96);
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 120% */
+    letter-spacing: -0.2px;
+  }
+}
+
+.body3-mobile {
+  @include u.at-mobile {
+    color: var(--ver-gray-96);
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px; /* 138.889% */
+    letter-spacing: -0.18px;
+  }
+}
+
+.body3-desktop {
+  @include u.at-desktop {
+    color: var(--ver-gray-96);
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px; /* 155.556% */
+    letter-spacing: -0.18px;
+  }
+}
+
+.body4-mobile {
+  @include u.at-mobile {
+    color: var(--ver-gray-96);
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+    letter-spacing: -0.16px;
+  }
+}
+.body4-desktop {
+  @include u.at-desktop {
+    color: var(--ver-gray-96);
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+    letter-spacing: -0.16px;
+  }
+}
+
+.body5-mobile {
+  @include u.at-mobile {
+    color: var(--ver-gray-96);
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: -0.14px;
+  }
+}
+.body5-desktop {
+  @include u.at-desktop {
+    color: var(--ver-gray-96);
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: -0.14px;
+  }
+}
+
+.label-mobile {
+  @include u.at-mobile {
+    color: var(--ver-purple-50);
+    font-family: "Roboto Mono";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 171.429% */
+    letter-spacing: 2.8px;
+    text-transform: uppercase;
+  }
+}
+.label-desktop {
+  @include u.at-desktop {
+    color: var(--ver-purple-50);
+    font-family: "Roboto Mono";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 171.429% */
+    letter-spacing: 2.8px;
+    text-transform: uppercase;
+  }
+}
+
+.caption14-mobile {
+  @include u.at-mobile {
+    color: var(--ver-gray-96);
+    font-family: "Roboto Mono";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 171.429% */
+    letter-spacing: 1.12px;
+    text-transform: uppercase;
+  }
+}
+.caption14-desktop {
+  @include u.at-desktop {
+    color: var(--ver-gray-96);
+    font-family: "Roboto Mono";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 171.429% */
+    letter-spacing: 1.12px;
+    text-transform: uppercase;
+  }
+}
+
+.caption13-mobile {
+  @include u.at-mobile {
+    color: var(--ver-gray-96);
+    font-family: "Roboto Mono";
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 184.615% */
+    letter-spacing: 1.04px;
+    text-transform: uppercase;
+  }
+}
+
+.caption13-desktop {
+  @include u.at-desktop {
+    color: var(--ver-gray-96);
+    font-family: "Roboto Mono";
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 184.615% */
+    letter-spacing: 1.04px;
+    text-transform: uppercase;
   }
 }

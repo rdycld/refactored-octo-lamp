@@ -8,20 +8,19 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 48px 16px;
+  padding: 48px 16px 80px;
+
+  @include u.at-desktop {
+    padding: 80px 16px 108px;
+  }
 }
 
 .text {
   color: var(--ver-white);
-
   text-align: center;
-  font-family: AlianceRegular, sans-serif;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 28px; /* 140% */
-  letter-spacing: -0.2px;
-  margin-bottom: 60px;
+  max-width: 793px;
+  margin: auto;
+  margin-bottom: 48px;
 }
 
 .slidesContainer {
@@ -31,9 +30,10 @@
   border-radius: 12px;
   min-height: 300px;
   max-height: 300px;
-  margin-bottom: 64px;
+  margin-bottom: 48px;
 
   @include u.at-desktop {
+    margin-bottom: 64px;
     width: 60%;
     height: 430px;
     max-height: unset;
@@ -58,7 +58,13 @@
 
 .buttons {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: center;
+  align-items: stretch;
   gap: var(--ver-spacing-xs);
+
+  @include u.at-desktop {
+    justify-content: center;
+    flex-direction: row;
+  }
 }

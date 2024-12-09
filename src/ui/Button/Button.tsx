@@ -79,7 +79,7 @@ export const Button = ({
       )}
       {...rest}
     >
-      {children}
+      <span style={{ marginRight: "auto" }}>{children}</span>
       {text}
       <Spacer />
       {rest.withCounter ? (

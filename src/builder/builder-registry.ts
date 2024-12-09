@@ -233,12 +233,10 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
           name: "Text",
           options: { text: "I am child text block!" },
         },
+        class: "label-desktop caption14-mobile",
         responsiveStyles: {
           large: {
-            fontFamily: "Roboto Mono, monospace",
-            fontSize: "14px",
-            fontWeight: "700",
-            color: "var(--ver-purple-50)",
+            marginBottom: "16px",
           },
         },
       },
@@ -248,18 +246,7 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
           name: "Text",
           options: { text: "I am child text block!" },
         },
-        responsiveStyles: {
-          large: {
-            fontSize: "42px",
-            lineHeight: "52px",
-            fontFamily: "Roboto, sans-serif",
-          },
-          medium: {
-            fontSize: "32px",
-            lineHeight: "40px",
-            fontFamily: "Roboto, sans-serif",
-          },
-        },
+        class: "h3-desktop h3-mobile",
       },
     ],
   },

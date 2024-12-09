@@ -28,7 +28,7 @@ export const SectionHeader = ({ children, variant, ...rest }: SectionProps) => {
         {children}
       </div>
       {withCta && (
-        <Button asLink href={rest.to}>
+        <Button asLink href={rest.to} className={styles.headerButton}>
           {rest.cta}
         </Button>
       )}

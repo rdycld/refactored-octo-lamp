@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./Tabs.module.scss";
 import { Button } from "@@ui/Button/Button";
+import clsx from "clsx";
 
 type TabsProps = {
   text: string;
@@ -19,7 +20,7 @@ export const Tabs = ({ tabs, text }: TabsProps) => {
 
   return (
     <div className={styles.container}>
-      <p className={styles.text}>{text}</p>
+      <p className={clsx(styles.text, "h5-desktop h5-mobile")}>{text}</p>
       <div className={styles.slidesContainer}>
         <div
           className={styles.slides}

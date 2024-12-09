@@ -61,12 +61,25 @@ export const Testimonials = ({ testimonials }: Props) => {
               <div className={styles.stats}>
                 {testimonial.stats.map((stat) => (
                   <div key={stat.description} className={styles.stat}>
-                    <p className={styles.statValue}>{stat.value}</p>
-                    <p className={styles.statDescription}>{stat.description}</p>
+                    <p
+                      className={clsx("h4-desktop h4-mobile", styles.statValue)}
+                    >
+                      {stat.value}
+                    </p>
+                    <p
+                      className={clsx(
+                        "caption14-desktop caption14-mobile",
+                        styles.statDescription
+                      )}
+                    >
+                      {stat.description}
+                    </p>
                   </div>
                 ))}
               </div>
-              <p className={styles.text}>{testimonial.text}</p>
+              <p className={clsx("h4-desktop h4-mobile", styles.text)}>
+                {testimonial.text}
+              </p>
               <div className={styles.bottom}>
                 <div className={styles.author}>
                   <img
@@ -75,10 +88,20 @@ export const Testimonials = ({ testimonials }: Props) => {
                     alt=""
                   ></img>
                   <div className={styles.authorInfo}>
-                    <p className={styles.authorName}>
+                    <p
+                      className={clsx(
+                        "h5-desktop h6-mobile",
+                        styles.authorName
+                      )}
+                    >
                       {testimonial.authorName}
                     </p>
-                    <p className={styles.authorTitle}>
+                    <p
+                      className={clsx(
+                        "body5-desktop body5-mobile",
+                        styles.authorTitle
+                      )}
+                    >
                       {testimonial.authorPosition}
                     </p>
                   </div>

@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   gap: 32px;
-  padding: 24px;
+  padding: 20px;
   border: 1px solid var(--ver-gray-10);
   border-radius: 2px;
 
@@ -13,4 +13,5 @@
 .slide {
   flex-shrink: 0;
   scroll-snap-align: start;
+  max-height: 24px;
 }
