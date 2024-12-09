@@ -9,5 +9,6 @@ declare const classNames: {
   readonly textarea: "textarea";
   readonly inputError: "inputError";
   readonly select: "select";
+  readonly privacyPolicyLink: "privacyPolicyLink";
 };
 export = classNames;

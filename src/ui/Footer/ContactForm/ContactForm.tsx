@@ -135,7 +135,12 @@ export const ContactForm = () => {
         </select>
       </label>
       <div className={styles.bottom}>
-        <p style={{ fontFamily: "Robot, sans-serif" }}>
+        <p
+          className={clsx(
+            "body5-desktop body5-mobile",
+            styles.privacyPolicyLink
+          )}
+        >
           By submitting this I confirm that read and understand{" "}
           <a href="/">Privacy Policy.</a>
         </p>

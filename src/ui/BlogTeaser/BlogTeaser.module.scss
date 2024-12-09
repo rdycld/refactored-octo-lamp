@@ -1,12 +1,13 @@
 @use "@cssUtils" as u;
 
 .container {
-  gap: var(--ver-spacing-xs);
+  gap: 24px;
   display: flex;
   flex-direction: column;
 
   @include u.at-desktop {
     display: grid;
     grid-auto-rows: auto;
+    gap: 8px;
   }
 }

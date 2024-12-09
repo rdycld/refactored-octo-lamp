@@ -1,6 +1,7 @@
 import { Typography } from "@@typography/Typography";
 import styles from "./BlogCard.module.scss";
 import ArrowsIcon from "@@icons/double_arrow_right.svg?react";
+import clsx from "clsx";
 
 type BlogCardProps = {
   url: string;
@@ -21,9 +22,16 @@ export const BlogCard = ({
       <img className={styles.image} src={headerImage} />
       <div className={styles.content}>
         {(expectedTag || tags[0]) && (
-          <div className={styles.tag}>{expectedTag ?? tags[0]}</div>
+          <div
+            className={clsx("caption13-mobile caption13-desktop", styles.tag)}
+          >
+            {expectedTag ?? tags[0]}
+          </div>
         )}
-        <Typography className={styles.teaser} kind="heading5">
+        <Typography
+          className={clsx("h5-desktop h4-mobile", styles.teaser)}
+          kind="heading5"
+        >
           {teaser}
         </Typography>
         <a href={url} className={styles.button}>

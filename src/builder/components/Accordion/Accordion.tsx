@@ -58,7 +58,7 @@ export const AccordionTrigger = React.forwardRef(
   ({ children, className, ...props }: any, forwardedRef) => (
     <OrigAccordion.Header className={styles.Header}>
       <OrigAccordion.Trigger
-        className={clsx(styles.Trigger, className)}
+        className={clsx(styles.Trigger, className, "h4-desktop h4-mobile")}
         {...props}
         ref={forwardedRef}
       >
