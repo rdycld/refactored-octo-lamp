@@ -26,13 +26,13 @@ $desktopSpacing: var(--ver-spacing-m);
 
 .content {
   height: v.$navBarHeightPx;
-  padding: var(--ver-spacing-xs) var(--ver-spacing-xs) var(--ver-spacing-xs)
-    var(--ver-spacing-m);
   background-color: var(--ver-white);
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
+  padding-left: var(--ver-spacing-m);
+  padding-right: var(--ver-spacing-m);
 
   @include u.at-desktop {
     max-width: v.$containerWideWidthPx;
@@ -51,6 +51,8 @@ $desktopSpacing: var(--ver-spacing-m);
 
 .navigationWrapper {
   display: flex;
+  align-items: center;
+  height: 100%;
   gap: var(--ver-spacing-xs);
 }
 
@@ -83,8 +85,16 @@ $desktopSpacing: var(--ver-spacing-m);
 .link {
   text-decoration: none;
   color: var(--ver-gray-96);
-  font-size: 13px;
   font-family: "Roboto Mono";
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1.04px;
+
+  &:hover {
+    color: var(--ver-purple-50);
+  }
 }
 
 .mobileMenuContainer {

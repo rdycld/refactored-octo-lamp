@@ -30,9 +30,7 @@ export const NavItem = ({
       href={url}
       size="small"
       onMouseEnter={(e) => onHover(e, name)}
-      className={clsx(styles.containerButton, {
-        [styles.containerActive]: active,
-      })}
+      className={styles.containerButton}
     >
       {children}
       {withSubMenu && (
