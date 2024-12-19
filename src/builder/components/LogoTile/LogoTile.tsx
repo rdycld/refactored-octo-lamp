@@ -1,6 +1,5 @@
-import { Typography } from "@@typography/Typography";
-
 import styles from "./LogoTile.module.scss";
+import clsx from "clsx";
 
 type LogoTileProps = {
   description: string;
@@ -11,9 +10,9 @@ export const LogoTile = ({ children, description }: LogoTileProps) => {
   return (
     <div className={styles.container}>
       {children}
-      <Typography kind="body4" className={styles.text}>
+      <p className={clsx("caption14-desktop caption14-mobile", styles.text)}>
         {description}
-      </Typography>
+      </p>
     </div>
   );
 };

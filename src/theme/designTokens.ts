@@ -49,6 +49,10 @@ export const colors = [
     value: "var(--ver-gray-96)",
   },
   {
+    name: "Verity Gray 88",
+    value: "var(--ver-gray-88)",
+  },
+  {
     name: "Verity Gray 80",
     value: "var(--ver-gray-80)",
   },

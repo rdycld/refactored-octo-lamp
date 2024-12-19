@@ -39,6 +39,20 @@ export const NavItem = ({
         />
       )}
     </Button>
+  ) : withSubMenu ? (
+    <p
+      onMouseEnter={(e) => onHover(e, name)}
+      className={clsx(styles.container, {
+        [styles.containerActive]: active,
+      })}
+    >
+      {children}
+      {withSubMenu && (
+        <Chevron
+          className={clsx(styles.chevron, { [styles.active]: active })}
+        />
+      )}
+    </p>
   ) : (
     <a
       href={url}
