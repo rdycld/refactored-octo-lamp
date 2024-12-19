@@ -39,8 +39,8 @@ export const Footer = () => {
         <SectionWrapper variant="overflow">
           <div className={styles.top}>
             <p className={styles.text}>
-              Discover how Verity’s drone technology can help your operations
-              fly toward excellence
+              Discover how Verity's technology can help your operations fly
+              toward excellence
             </p>
             <div className={styles.formContainer}>
               <ContactForm />

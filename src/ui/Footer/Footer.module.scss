@@ -12,10 +12,12 @@
   flex-direction: column;
   gap: 48px;
   padding-top: 80px;
+  padding-bottom: 92px;
   background-image: url("../../assets/footer_lines.svg");
   background-size: cover;
 
   @include u.at-desktop {
+    padding-bottom: 76px;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -60,6 +62,8 @@
   @include u.at-desktop {
     flex-direction: row;
     justify-content: space-between;
+    padding-bottom: 150px;
+    padding-top: 108px;
   }
 }
 
@@ -117,8 +121,14 @@
   background-image: url("../../assets/verity_logo_hollow.svg");
   background-size: cover;
   padding-bottom: var(--ver-spacing-2xl);
+  font-family: "Roboto Mono";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 
   @include u.at-desktop {
+    height: 250px;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
