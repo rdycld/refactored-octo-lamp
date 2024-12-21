@@ -220,7 +220,9 @@ export const NavBar = () => {
               style={{
                 left: floatingMenuX,
                 transform:
-                  !floatingMenuVisible || !subMenu ? `scale(0)` : `scale(1)`,
+                  !floatingMenuVisible || !subMenu || subMenu.length === 0
+                    ? `scale(0)`
+                    : `scale(1)`,
               }}
               className={styles.floatingSubMenu}
               onTransitionEnd={handleTransitionEnd}
