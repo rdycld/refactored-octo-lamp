@@ -11,6 +11,5 @@ declare const classNames: {
   readonly textWrapper: "textWrapper";
   readonly headline: "headline";
   readonly text: "text";
-  readonly playButton: "playButton";
 };
 export = classNames;

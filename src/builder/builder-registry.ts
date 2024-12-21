@@ -215,10 +215,18 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
         defaultValue: "false",
         friendlyName: "With Cta",
       },
+
       {
         showIf: 'options.get("withCta")',
         name: "to",
         type: "string",
+      },
+      {
+        showIf: 'options.get("withCta")',
+        name: "ctaVariant",
+        type: "string",
+        enum: ["full", "hollowDark", "hollow"],
+        defaultValue: "full",
       },
       {
         showIf: 'options.get("withCta")',

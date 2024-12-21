@@ -118,18 +118,3 @@
     justify-content: center;
   }
 }
-
-.playButton {
-  display: flex;
-  padding: 16px 20px;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  border-radius: 2px;
-  border: 1px solid var(--ver-white);
-  color: var(--ver-white);
-  cursor: pointer;
-  font-family: "Roboto Mono";
-
-  text-transform: uppercase;
-}

@@ -37,10 +37,10 @@
 }
 
 .testimonials {
+  overflow: hidden;
+  clip-path: polygon(100% 0, 100% 100%, 20px 100%, 0 calc(100% - 20px), 0 0);
   @include u.at-desktop {
     width: calc(100% - 150px);
-    overflow: hidden;
-    clip-path: polygon(100% 0, 100% 100%, 20px 100%, 0 calc(100% - 20px), 0 0);
   }
 }
 
@@ -53,6 +53,10 @@
   padding: 48px 24px 48px 32px;
   background-color: var(--ver-purple-50);
   min-width: 100%;
+
+  // @include u.at-desktop {
+  //   padding-bottom: 0;
+  // }
 }
 
 .stats {
@@ -84,6 +88,7 @@
   color: var(--ver-white);
   margin-top: auto;
   margin-bottom: 24px;
+  max-width: 840px;
   @include u.at-desktop {
     margin-bottom: 48px;
   }

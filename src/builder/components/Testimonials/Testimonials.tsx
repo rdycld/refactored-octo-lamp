@@ -106,12 +106,7 @@ export const Testimonials = ({ testimonials }: Props) => {
                     </p>
                   </div>
                 </div>
-                <Button
-                  asLink
-                  href={testimonial.ctaUrl}
-                  variant="hollow"
-                  size="small"
-                >
+                <Button asLink href={testimonial.ctaUrl} variant="hollow">
                   read full story
                 </Button>
               </div>

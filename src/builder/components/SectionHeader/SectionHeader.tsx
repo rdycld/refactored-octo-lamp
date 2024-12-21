@@ -12,6 +12,7 @@ type SectionProps =
       children: React.ReactNode;
       variant: "overflow" | "normal";
       withCta: true;
+      ctaVariant: "full" | "hollowDark" | "hollow";
       cta: string;
       to: string;
     };
@@ -28,7 +29,12 @@ export const SectionHeader = ({ children, variant, ...rest }: SectionProps) => {
         {children}
       </div>
       {withCta && (
-        <Button asLink href={rest.to} className={styles.headerButton}>
+        <Button
+          variant={rest.ctaVariant}
+          asLink
+          href={rest.to}
+          className={styles.headerButton}
+        >
           {rest.cta}
         </Button>
       )}

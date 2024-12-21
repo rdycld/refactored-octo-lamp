@@ -83,14 +83,9 @@ export const Hero = ({
                 {cta}
               </Button>
             )}
-            <div
-              className={styles.playButton}
-              role="button"
-              tabIndex={0}
-              onClick={handleClick}
-            >
+            <Button onClick={handleClick} variant="hollow">
               watch video
-            </div>
+            </Button>
           </div>
           {!paused && (
             <div

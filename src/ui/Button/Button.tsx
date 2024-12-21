@@ -42,7 +42,7 @@ type ButtonProps = Common &
 const Spacer = () => {
   return (
     <svg
-      width="2px"
+      width="1px"
       height="22px"
       viewBox="0 0 2 22"
       className={styles.spacer}
@@ -79,7 +79,7 @@ export const Button = ({
       )}
       {...rest}
     >
-      <span style={{ marginRight: "auto" }}>{children}</span>
+      <span>{children}</span>
       {text}
       <Spacer />
       {rest.withCounter ? (
