@@ -66,7 +66,7 @@ export const VideoWrapper = ({ children }: VideoWrapperProps) => {
           tabIndex={0}
           className={styles.button}
         >
-          {paused ? <Play /> : "xx"}
+          {paused ? <Play className={styles.play} /> : "xx"}
         </div>
 
         <p className={styles.time}>

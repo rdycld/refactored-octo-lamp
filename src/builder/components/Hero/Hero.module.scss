@@ -21,6 +21,18 @@
   align-items: center;
 }
 
+.playButton {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  width: 56px;
+  height: 56px;
+  background-color: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid var(--ver-white);
+}
+
 @keyframes rotate {
   from {
     transform: rotate(0deg);
@@ -76,9 +88,13 @@
   flex-direction: column;
   display: flex;
   gap: 40px;
+  padding-top: 32px;
 
-  justify-content: center;
   align-items: start;
+
+  @include u.at-desktop {
+    padding-top: 347px;
+  }
 }
 
 .contentCenter {
@@ -93,7 +109,7 @@
 }
 
 .headline {
-  color: var(--ver-purple-40);
+  color: var(--ver-purple-30);
 }
 
 .text {

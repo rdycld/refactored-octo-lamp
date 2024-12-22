@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type ElementRef } from "react";
+import Play from "@@icons/play.svg?react";
 
 import styles from "./Hero.module.scss";
 import clsx from "clsx";
@@ -83,11 +84,11 @@ export const Hero = ({
                 {cta}
               </Button>
             )}
-            <Button onClick={handleClick} variant="hollow">
+            {/* <Button onClick={handleClick} variant="hollow">
               watch video
-            </Button>
+            </Button> */}
           </div>
-          {!paused && (
+          {!paused ? (
             <div
               role="button"
               tabIndex={0}
@@ -95,6 +96,15 @@ export const Hero = ({
               className={clsx(styles.button)}
             >
               <div role="presentation" className={styles.pause}></div>
+            </div>
+          ) : (
+            <div
+              role="button"
+              tabIndex={0}
+              onClick={handleClick}
+              className={clsx(styles.playButton)}
+            >
+              <Play />
             </div>
           )}
         </div>

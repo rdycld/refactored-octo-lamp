@@ -1,22 +1,44 @@
+@use "@cssUtils" as u;
+
 .container {
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .control {
   background-color: var(--ver-gray-96);
-  padding: 32px 40px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  padding-bottom: 0;
 
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  @include u.at-desktop {
+    padding: 32px 40px;
+    position: absolute;
+    flex-direction: column;
+    bottom: 0;
+    left: 0;
+  }
 }
 
 .button {
-  width: 56px;
-  height: 56px;
   border-radius: 100%;
   border: 1px solid var(--ver-white);
   margin-bottom: var(--ver-spacing-s);
+  width: 40px;
+  height: 40px;
+
+  @include u.at-desktop {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+.play {
+  width: inherit;
+  height: inherit;
 }
 
 .time {

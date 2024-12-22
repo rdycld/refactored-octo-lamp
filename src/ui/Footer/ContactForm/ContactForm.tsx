@@ -41,6 +41,7 @@ export const ContactForm = () => {
         >
           first name
           <input
+            autoComplete="off"
             className={clsx(styles.input, {
               [styles.inputError]: Boolean(errors.firstName),
             })}
@@ -58,6 +59,7 @@ export const ContactForm = () => {
         >
           last name
           <input
+            autoComplete="off"
             className={clsx(styles.input, {
               [styles.inputError]: Boolean(errors.lastName),
             })}
@@ -76,6 +78,7 @@ export const ContactForm = () => {
       >
         business email
         <input
+          autoComplete="off"
           className={clsx(styles.input, {
             [styles.inputError]: Boolean(errors.businessEmail),
           })}
@@ -93,6 +96,7 @@ export const ContactForm = () => {
       >
         company
         <input
+          autoComplete="off"
           className={clsx(styles.input, {
             [styles.inputError]: Boolean(errors.company),
           })}
@@ -110,6 +114,7 @@ export const ContactForm = () => {
       >
         message
         <textarea
+          autoComplete="off"
           className={clsx(styles.textarea, {
             [styles.inputError]: Boolean(errors.message),
           })}
@@ -121,6 +126,7 @@ export const ContactForm = () => {
       <label className={styles.label} htmlFor="howDidYouKnow">
         how did you know about us?
         <select
+          autoComplete="off"
           id="howDidYouKnow"
           {...register("howDidYouKnow")}
           className={styles.select}
