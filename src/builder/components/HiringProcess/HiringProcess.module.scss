@@ -1,0 +1,51 @@
+@use "@cssUtils" as u;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  @include u.at-desktop {
+    height: 260px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.item {
+  margin-bottom: 64px;
+  display: flex;
+  flex-direction: column;
+  height: 130px;
+  flex-grow: 1;
+  @include u.at-desktop {
+    margin-bottom: 0;
+  }
+}
+
+.item:nth-of-type(even) {
+  @include u.at-desktop {
+    align-self: flex-end;
+    height: 131px;
+    border-top: 1px solid var(--ver-gray-96);
+    padding-top: 24px;
+  }
+}
+
+.item:nth-of-type(odd) {
+  @include u.at-desktop {
+    border-bottom: 1px solid var(--ver-gray-96);
+  }
+}
+
+.counter {
+  background-color: var(--ver-gray-96);
+  padding: 8px;
+  color: var(--ver-white);
+  align-self: flex-start;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 32px;
+}

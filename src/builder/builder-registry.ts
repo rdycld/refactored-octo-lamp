@@ -14,9 +14,11 @@ import { VideoWrapper } from "@@builder/components/VideoWrapper/VideoWrapper";
 import { Resources } from "@@builder/components/Resources/Resources";
 import { LogosSlider } from "@@builder/components/LogosSlider/LogosSlider";
 import { Careers } from "@@builder/components/Careers/Careers";
+import { HiringProcess } from "@@builder/components/HiringProcess/HiringProcess";
 
 export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
   customAccordionInfo,
+  { component: HiringProcess, name: "Hiring Process" },
   {
     component: Careers,
     name: "Open Positions",
