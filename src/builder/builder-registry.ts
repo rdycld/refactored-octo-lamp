@@ -13,9 +13,44 @@ import { Tabs } from "@@builder/components/Tabs/Tabs";
 import { VideoWrapper } from "@@builder/components/VideoWrapper/VideoWrapper";
 import { Resources } from "@@builder/components/Resources/Resources";
 import { LogosSlider } from "@@builder/components/LogosSlider/LogosSlider";
+import { Careers } from "@@builder/components/Careers/Careers";
 
 export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
   customAccordionInfo,
+  {
+    component: Careers,
+    name: "Open Positions",
+    inputs: [
+      { name: "title", friendlyName: "category", type: "text" },
+      {
+        name: "jobs",
+        friendlyName: "Positions",
+        type: "list",
+        subFields: [
+          {
+            name: "name",
+            friendlyName: "Title",
+            type: "text",
+          },
+          {
+            name: "location",
+            friendlyName: "Job Location",
+            type: "text",
+          },
+          {
+            name: "fte",
+            friendlyName: "FTE",
+            type: "text",
+          },
+          {
+            name: "url",
+            friendlyName: "URL to apply",
+            type: "text",
+          },
+        ],
+      },
+    ],
+  },
   {
     component: LogosSlider,
     name: "Logos Slider",
