@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import {
   Content,
   fetchOneEntry,
@@ -9,6 +9,10 @@ import {
 import { CUSTOM_COMPONENTS } from "./builder-registry";
 import { NavBar } from "@@ui/NavBar/NavBar";
 import { Footer } from "@@ui/Footer/Footer";
+import { SectionWrapper } from "@@builder/components/SectionWrapper/SectionWrapper";
+
+import styles from "./builder-page.module.scss";
+import { Breadcrumbs } from "@@ui/Breadcrumbs/Breadcrumbs";
 
 const BUILDER_API_KEY = import.meta.env.VITE_PUBLIC_BUILDER_KEY;
 const MODEL_NAME = "page";
@@ -42,15 +46,49 @@ export default function BuilderPage() {
       });
   }, []);
 
+  const published = useMemo(() => {
+    if (!content) return "";
+    const date = new Date(content.firstPublished);
+
+    return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
+  }, [content]);
+
+  console.log(content);
   if (notFound && !isPreviewing()) {
     return <div>404 Page Not Found</div>;
   }
+
+  console.log(window.location.pathname.split("/"));
 
   return (
     <div
       style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}
     >
       <NavBar />
+      {content && getModelName(window.location.pathname) === "resources" && (
+        <>
+          <SectionWrapper variant="overflow">
+            <Breadcrumbs />
+            <div className={styles.published}>Published: {published}</div>
+            <div
+              className="h3-desktop h3-mobile"
+              style={{ maxWidth: "800px", marginBottom: "32px" }}
+            >
+              {content.data?.title}
+            </div>
+          </SectionWrapper>
+          {content.data?.image && (
+            <SectionWrapper variant="normal">
+              <img
+                className={styles.coverImage}
+                src={content.data.image}
+                alt=""
+              />
+            </SectionWrapper>
+          )}
+        </>
+      )}
+
       <Content
         content={content}
         model={MODEL_NAME}

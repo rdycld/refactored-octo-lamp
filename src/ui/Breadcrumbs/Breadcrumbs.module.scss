@@ -1,0 +1,39 @@
+@use "@cssUtils" as u;
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  margin-top: 24px;
+
+  @include u.at-desktop {
+    margin-top: 40px;
+  }
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+
+  a {
+    color: var(--ver-gray-80);
+  }
+
+  &:last-of-type {
+    a {
+      color: var(--ver-purple-50);
+      max-width: 100px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}
+
+.arrow {
+  transform: rotate(-90deg);
+}

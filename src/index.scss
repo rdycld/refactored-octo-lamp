@@ -43,7 +43,7 @@ h5 {
 
 .h1-mobile {
   @include u.at-mobile {
-    font-family: AlianceRegular;
+    font-family: AlianceRegular, sans-serif;
     font-size: 50px;
     font-style: normal;
     font-weight: 400;
@@ -55,7 +55,7 @@ h5 {
 
 .h1-desktop {
   @include u.at-desktop {
-    font-family: AlianceRegular;
+    font-family: AlianceRegular, sans-serif;
     font-size: 50px;
     font-size: 80px;
     font-style: normal;
@@ -67,7 +67,7 @@ h5 {
 
 .h2-mobile {
   @include u.at-mobile {
-    font-family: AlianceRegular;
+    font-family: AlianceRegular, sans-serif;
     color: var(--ver-gray-96);
     font-size: 40px;
     font-style: normal;
@@ -79,7 +79,7 @@ h5 {
 
 .h2-desktop {
   @include u.at-desktop {
-    font-family: AlianceRegular;
+    font-family: AlianceRegular, sans-serif;
     color: var(--ver-gray-96);
     font-size: 58px;
     font-style: normal;
@@ -91,7 +91,7 @@ h5 {
 
 .h3-mobile {
   @include u.at-mobile {
-    font-family: AlianceRegular;
+    font-family: AlianceRegular, sans-serif;
     color: var(--ver-gray-96);
     font-size: 32px;
     font-style: normal;
@@ -103,7 +103,7 @@ h5 {
 
 .h3-desktop {
   @include u.at-desktop {
-    font-family: AlianceRegular;
+    font-family: AlianceRegular, sans-serif;
     color: var(--ver-gray-96);
     font-size: 42px;
     font-style: normal;
@@ -115,7 +115,7 @@ h5 {
 
 .h4-mobile {
   @include u.at-mobile {
-    font-family: AlianceRegular;
+    font-family: AlianceRegular, sans-serif;
     color: var(--ver-gray-96);
     font-size: 24px;
     font-style: normal;
@@ -127,7 +127,7 @@ h5 {
 
 .h4-desktop {
   @include u.at-desktop {
-    font-family: AlianceRegular;
+    font-family: AlianceRegular, sans-serif;
     color: var(--ver-gray-96);
     font-size: 32px;
     font-style: normal;
@@ -139,7 +139,7 @@ h5 {
 
 .h5-mobile {
   @include u.at-mobile {
-    font-family: AlianceRegular;
+    font-family: AlianceRegular, sans-serif;
     color: var(--ver-gray-96);
     font-size: 20px;
     font-style: normal;
@@ -151,7 +151,7 @@ h5 {
 
 .h5-desktop {
   @include u.at-desktop {
-    font-family: AlianceRegular;
+    font-family: AlianceRegular, sans-serif;
     color: var(--ver-gray-96);
     font-size: 24px;
     font-style: normal;
@@ -163,7 +163,7 @@ h5 {
 
 .h6-mobile {
   @include u.at-mobile {
-    font-family: AlianceRegular;
+    font-family: AlianceRegular, sans-serif;
     color: var(--ver-gray-96);
     font-size: 16px;
     font-style: normal;
@@ -175,7 +175,7 @@ h5 {
 
 .h6-desktop {
   @include u.at-desktop {
-    font-family: AlianceRegular;
+    font-family: AlianceRegular, sans-serif;
     color: var(--ver-gray-96);
     font-size: 16px;
     font-style: normal;

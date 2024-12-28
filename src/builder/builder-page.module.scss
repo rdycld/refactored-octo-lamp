@@ -1,0 +1,16 @@
+.published {
+  color: var(--ver-gray-80);
+  font-family: "Roboto Mono";
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1.04px;
+  margin-bottom: 16;
+}
+
+.coverImage {
+  overflow: hidden;
+  object-fit: cover;
+  max-width: 100%;
+}
