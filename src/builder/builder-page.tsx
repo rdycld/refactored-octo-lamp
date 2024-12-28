@@ -48,6 +48,7 @@ export default function BuilderPage() {
 
   const published = useMemo(() => {
     if (!content) return "";
+    //@ts-expect-error it should exist
     const date = new Date(content.firstPublished);
 
     return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
