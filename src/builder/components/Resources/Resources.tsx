@@ -131,6 +131,23 @@ export const Resources = () => {
   }, [drawerRef]);
 
   useEffect(() => {
+    const searchStr = window.location.href.slice(
+      window.location.href.indexOf("?")
+    );
+    const params = new URLSearchParams(searchStr);
+
+    const typeParam = params.get("type");
+
+    if (!typeParam) return;
+
+    if (!typeFilterOptions.some(({ value }) => value === typeParam)) return;
+
+    if (typeFilter.split(",").includes(typeParam)) return;
+
+    handleChangeFilters(`"${typeParam}"`, "type");
+  }, []);
+
+  useEffect(() => {
     const f = async () => {
       const response = await fetch(
         `${BUILDER_CND_BASE_URL}/resources?apiKey=${BUILDER_API_KEY}${

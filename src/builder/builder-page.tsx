@@ -54,12 +54,9 @@ export default function BuilderPage() {
     return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
   }, [content]);
 
-  console.log(content);
   if (notFound && !isPreviewing()) {
     return <div>404 Page Not Found</div>;
   }
-
-  console.log(window.location.pathname.split("/"));
 
   return (
     <div

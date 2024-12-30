@@ -31,6 +31,23 @@ h5 {
   margin: 0;
 }
 
+ul,
+ol {
+  padding-left: 20px;
+}
+li {
+  padding-left: 8px;
+  margin-bottom: 16px;
+}
+
+ul li::marker {
+  color: var(--ver-gray-80);
+}
+
+ol li::marker {
+  color: var(--ver-purple-50);
+}
+
 :root {
   --ver-transition-normal: 150ms ease-in;
 }
