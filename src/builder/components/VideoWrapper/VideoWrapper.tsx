@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type ElementRef } from "react";
 import Play from "@@icons/play.svg?react";
+import Pause from "@@icons/pause.svg?react";
 
 import styles from "./VideoWrapper.module.scss";
 import clsx from "clsx";
@@ -72,7 +73,11 @@ export const VideoWrapper = ({
             tabIndex={0}
             className={styles.button}
           >
-            {paused ? <Play className={styles.play} /> : "xx"}
+            {paused ? (
+              <Play className={styles.play} />
+            ) : (
+              <Pause className={styles.play} />
+            )}
           </div>
 
           <p className={styles.time}>
@@ -91,7 +96,7 @@ export const VideoWrapper = ({
               role="button"
               tabIndex={0}
               onClick={handleClick}
-              className={clsx(styles.button)}
+              className={clsx(styles.heroButton)}
             >
               <div role="presentation" className={styles.pause}></div>
             </div>

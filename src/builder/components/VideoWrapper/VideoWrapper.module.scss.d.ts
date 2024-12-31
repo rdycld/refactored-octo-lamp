@@ -6,5 +6,6 @@ declare const classNames: {
   readonly time: "time";
   readonly playButton: "playButton";
   readonly pause: "pause";
+  readonly heroButton: "heroButton";
 };
 export = classNames;
