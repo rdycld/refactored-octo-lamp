@@ -181,7 +181,12 @@ export const NavBar = () => {
           className={styles.content}
           onMouseLeave={handleCursorLeaveNav}
         >
-          <a href="/">
+          <a
+            href="/"
+            style={{
+              height: "30px",
+            }}
+          >
             <VerityLogo className={styles.verityLogo} />
           </a>
           {!isMobile && (

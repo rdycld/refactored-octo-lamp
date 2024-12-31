@@ -1,0 +1,35 @@
+@use "@cssUtils" as u;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ver-spacing-xl);
+  margin-bottom: 56px;
+
+  @include u.at-desktop {
+    margin-right: auto;
+    min-width: 386px;
+  }
+}
+
+.tile {
+  background-color: var(--ver-gray-10);
+  padding: var(--ver-spacing-m) var(--ver-spacing-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ver-spacing-m);
+}
+
+.phoneNumber {
+  display: flex;
+  color: var(--ver-gray-60) !important;
+  gap: var(--ver-spacing-xs);
+
+  font-family: "Roboto Mono";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 171.429% */
+  letter-spacing: 1.12px;
+  text-transform: uppercase;
+}

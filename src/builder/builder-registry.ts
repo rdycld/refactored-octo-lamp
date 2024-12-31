@@ -15,9 +15,13 @@ import { Resources } from "@@builder/components/Resources/Resources";
 import { LogosSlider } from "@@builder/components/LogosSlider/LogosSlider";
 import { Careers } from "@@builder/components/Careers/Careers";
 import { HiringProcess } from "@@builder/components/HiringProcess/HiringProcess";
+import { ContactForm } from "@@builder/components/ContactForm/ContactForm";
+import { ContactTiles } from "@@builder/components/ContactTiles/ContactTiles";
 
 export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
   customAccordionInfo,
+  { component: ContactForm, name: "Contact form" },
+  { component: ContactTiles, name: "Contact tiles" },
   { component: HiringProcess, name: "Hiring Process" },
   {
     component: Careers,
@@ -281,6 +285,7 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
         class: "label-desktop caption14-mobile",
         responsiveStyles: {
           large: {
+            color: "var(--ver-purple-50)",
             marginBottom: "16px",
           },
         },

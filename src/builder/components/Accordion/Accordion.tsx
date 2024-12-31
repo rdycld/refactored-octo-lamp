@@ -19,6 +19,9 @@ interface AccordionProps {
 
 const Accordion = ({ tabList, builderBlock }: AccordionProps) => {
   const [value, setValue] = useState(tabList[0].tabName);
+
+  if (tabList.length === 0) return null;
+
   return (
     <OrigAccordion.Root
       className={styles.Root}
