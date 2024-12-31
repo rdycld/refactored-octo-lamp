@@ -4,5 +4,7 @@ declare const classNames: {
   readonly button: "button";
   readonly play: "play";
   readonly time: "time";
+  readonly playButton: "playButton";
+  readonly pause: "pause";
 };
 export = classNames;

@@ -2,9 +2,11 @@ import { useEffect, useRef, useState, type ElementRef } from "react";
 import Play from "@@icons/play.svg?react";
 
 import styles from "./VideoWrapper.module.scss";
+import clsx from "clsx";
 
 type VideoWrapperProps = {
   children: React.ReactNode;
+  variant?: "hero" | "default";
 };
 
 const humanizeTime = (time: number) => {
@@ -14,7 +16,10 @@ const humanizeTime = (time: number) => {
   return `${minutes} : ${seconds.toString().padStart(2, "0")}`;
 };
 
-export const VideoWrapper = ({ children }: VideoWrapperProps) => {
+export const VideoWrapper = ({
+  children,
+  variant = "default",
+}: VideoWrapperProps) => {
   const containerRef = useRef<ElementRef<"div">>(null);
   const [paused, setPaused] = useState(true);
   const [currentTime, setCurrentTime] = useState(0);
@@ -59,22 +64,49 @@ export const VideoWrapper = ({ children }: VideoWrapperProps) => {
     <div className={styles.container} ref={containerRef}>
       {children}
 
-      <div className={styles.control}>
-        <div
-          onClick={handleClick}
-          role="button"
-          tabIndex={0}
-          className={styles.button}
-        >
-          {paused ? <Play className={styles.play} /> : "xx"}
-        </div>
+      {variant === "default" && (
+        <div className={styles.control}>
+          <div
+            onClick={handleClick}
+            role="button"
+            tabIndex={0}
+            className={styles.button}
+          >
+            {paused ? <Play className={styles.play} /> : "xx"}
+          </div>
 
-        <p className={styles.time}>
-          {humanizeTime(
-            paused && videoRef.current ? videoRef.current.duration : currentTime
+          <p className={styles.time}>
+            {humanizeTime(
+              paused && videoRef.current
+                ? videoRef.current.duration
+                : currentTime
+            )}
+          </p>
+        </div>
+      )}
+      {variant === "hero" && (
+        <>
+          {!paused ? (
+            <div
+              role="button"
+              tabIndex={0}
+              onClick={handleClick}
+              className={clsx(styles.button)}
+            >
+              <div role="presentation" className={styles.pause}></div>
+            </div>
+          ) : (
+            <div
+              role="button"
+              tabIndex={0}
+              onClick={handleClick}
+              className={clsx(styles.playButton)}
+            >
+              <Play />
+            </div>
           )}
-        </p>
-      </div>
+        </>
+      )}
     </div>
   );
 };

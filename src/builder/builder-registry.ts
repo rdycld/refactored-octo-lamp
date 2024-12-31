@@ -477,6 +477,15 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
   {
     component: withChildren(VideoWrapper),
     name: "VideoWrapper",
+    inputs: [
+      {
+        name: "variant",
+        type: "string",
+        friendlyName: "wrapper variant",
+        enum: ["hero", "default"],
+        defaultValue: "default",
+      },
+    ],
     defaultChildren: [
       {
         "@type": "@builder.io/sdk:Element",

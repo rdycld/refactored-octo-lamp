@@ -84,9 +84,6 @@ export const Hero = ({
                 {cta}
               </Button>
             )}
-            {/* <Button onClick={handleClick} variant="hollow">
-              watch video
-            </Button> */}
           </div>
           {!paused ? (
             <div
