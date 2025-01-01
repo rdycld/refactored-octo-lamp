@@ -22,13 +22,18 @@ export const Footer = () => {
 
   useEffect(() => {
     const f = async () => {
-      const response = await fetch(
-        `${BUILDER_CND_BASE_URL}/footer-navigation?apiKey=${BUILDER_API_KEY}`
-      );
+      try {
+        const response = await fetch(
+          `${BUILDER_CND_BASE_URL}/footer-navigation?apiKey=${BUILDER_API_KEY}`
+        );
 
-      const data = await response.json();
-      console.log(data, "foo");
-      setNavigation(data.results[0].data.navigation);
+        console.log(response, "bar");
+        const data = await response.json();
+        console.log(data, "foo");
+        setNavigation(data.results[0].data.navigation);
+      } catch (e) {
+        console.log("err", e);
+      }
     };
 
     f();
