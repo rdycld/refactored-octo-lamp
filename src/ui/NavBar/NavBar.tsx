@@ -22,6 +22,117 @@ type NavItem = {
   subItems?: { name: string; url: string }[];
 };
 
+const FALLBACK_NAVIGATION = [
+  {
+    name: "Solution",
+    url: "/solution",
+    subItems: [
+      {
+        name: "Solution Overview",
+        url: "/solution",
+      },
+      {
+        name: "Benefits",
+        url: "/benefits",
+      },
+      {
+        name: "Deployment",
+        url: "/deployment",
+      },
+      {
+        name: "FAQ",
+        url: "/faq",
+      },
+    ],
+    asButton: false,
+  },
+  {
+    asButton: false,
+    name: "Technology",
+    url: "/technology",
+  },
+  {
+    subItems: [],
+    name: "Client Success",
+    url: "/client-success",
+  },
+  {
+    name: "Industries",
+    subItems: [
+      {
+        name: "Third-party logistics",
+        url: "/industries/3-pl",
+      },
+      {
+        name: "Retailers",
+        url: "/industries/retailers",
+      },
+      {
+        name: "Manufacturing",
+        url: "/industries/manufacturing",
+      },
+      {
+        url: "/industries/fashion-and-apparel",
+        name: "Fashion & apparel",
+      },
+      {
+        name: "Food & beferages",
+        url: "/industries/food-and-beverages",
+      },
+    ],
+    url: "/industries",
+  },
+  {
+    name: "Resources",
+    url: "/resources",
+    subItems: [
+      {
+        name: "Resources overview",
+        url: "/resources",
+      },
+      {
+        url: "/resources?type=Blog",
+        name: "Blog",
+      },
+      {
+        url: "/resources?type=Whitepaper",
+        name: "Whitepaper",
+      },
+      {
+        name: "Video",
+        url: "/resources?type=Video",
+      },
+      {
+        url: "/resources?type=Event",
+        name: "Event",
+      },
+      {
+        url: "/resources?type=Press",
+        name: "Press",
+      },
+    ],
+  },
+  {
+    subItems: [
+      {
+        name: "About",
+        url: "/company",
+      },
+      {
+        url: "/careers",
+        name: "Careers",
+      },
+    ],
+    name: "Company",
+    url: "/company",
+  },
+  {
+    name: "Contact Us",
+    url: "/contact-us",
+    asButton: true,
+  },
+];
+
 export const NavBar = () => {
   const navRef = useRef<ElementRef<"nav">>(null);
   const navContainerRef = useRef<ElementRef<"div">>(null);
@@ -40,19 +151,30 @@ export const NavBar = () => {
 
   useEffect(() => {
     const f = async () => {
-      const response = await fetch(
-        `${BUILDER_CND_BASE_URL}/header-navigation?apiKey=${BUILDER_API_KEY}`
-      );
+      try {
+        const response = await fetch(
+          `${BUILDER_CND_BASE_URL}/header-navigation?apiKey=${BUILDER_API_KEY}`
+        );
 
-      const data = await response.json();
+        const data = await response.json();
 
-      setNavigation(
-        data.results[0].data.navigation.map((el: NavItem) => ({
-          ...el,
-          width: 0,
-          visible: true,
-        }))
-      );
+        setNavigation(
+          data.results[0].data.navigation.map((el: NavItem) => ({
+            ...el,
+            width: 0,
+            visible: true,
+          }))
+        );
+      } catch (e) {
+        console.error(e);
+        setNavigation(
+          FALLBACK_NAVIGATION.map((el) => ({
+            ...el,
+            width: 0,
+            visible: true,
+          }))
+        );
+      }
     };
 
     f();

@@ -11,6 +11,97 @@ import { ContactForm } from "@@ui/Footer/ContactForm/ContactForm";
 const BUILDER_API_KEY = import.meta.env.VITE_PUBLIC_BUILDER_KEY;
 const BUILDER_CND_BASE_URL = import.meta.env.VITE_PUBLIC_BUILDER_CDN_BASE_URL;
 
+const FALLBACK_FOOTER_NAVIGATION = [
+  {
+    subItems: [
+      {
+        url: "/solution",
+        name: "Solution overview",
+      },
+      {
+        name: "Benefits",
+        url: "Benefits",
+      },
+      {
+        name: "Deployment process",
+        url: "Deployment process",
+      },
+      {
+        name: "FAQ",
+        url: "/faq",
+      },
+    ],
+    name: "Solution",
+    url: "/solution",
+  },
+  {
+    subItems: [
+      {
+        url: "/industries/3-pl",
+        name: "Third-party logistics",
+      },
+      {
+        url: "/industries/retailers",
+        name: "Retailers",
+      },
+      {
+        url: "/industries/manufacturing",
+        name: "Manufacturing",
+      },
+      {
+        url: "/industries/fashion-and-apparel",
+        name: "Fashion & apparel",
+      },
+      {
+        url: "/industries/food-and-beverages",
+        name: "Food & beverages",
+      },
+    ],
+    name: "Industries",
+    url: "/industries",
+  },
+  {
+    subItems: [
+      {
+        name: "Resources overview",
+        url: "/resources",
+      },
+      {
+        name: "Videos",
+        url: "/resources?type=Video",
+      },
+      {
+        name: "Blog",
+        url: "/resources?type=Blog",
+      },
+      {
+        name: "Whitepapers",
+        url: "/resources?type=Whitepaper",
+      },
+    ],
+    name: "Resources",
+    url: "/resources",
+  },
+  {
+    name: "Company",
+    subItems: [
+      {
+        name: "About",
+        url: "/company",
+      },
+      {
+        name: "Careers",
+        url: "/careers",
+      },
+      {
+        url: "/legal-notice",
+        name: "Legal Notice",
+      },
+    ],
+    url: "/company",
+  },
+];
+
 type NavItem = {
   name: string;
   url: string;
@@ -27,12 +118,12 @@ export const Footer = () => {
           `${BUILDER_CND_BASE_URL}/footer-navigation?apiKey=${BUILDER_API_KEY}`
         );
 
-        console.log(response, "bar");
         const data = await response.json();
-        console.log(data, "foo");
+
         setNavigation(data.results[0].data.navigation);
-      } catch (e) {
-        console.log("err", e);
+      } catch (e: unknown) {
+        console.error(e);
+        setNavigation(FALLBACK_FOOTER_NAVIGATION);
       }
     };
 
