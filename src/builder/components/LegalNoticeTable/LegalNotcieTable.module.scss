@@ -1,0 +1,33 @@
+.container {
+  width: 795px;
+  margin: auto;
+
+  table {
+    table-layout: fixed;
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    width: 252px;
+    border: 1px solid var(--ver-gray-20);
+    padding: 16px 20px;
+
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+    letter-spacing: -0.16px;
+  }
+
+  th {
+    background-color: var(--ver-gray-10);
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px; /* 155.556% */
+    letter-spacing: -0.18px;
+  }
+}

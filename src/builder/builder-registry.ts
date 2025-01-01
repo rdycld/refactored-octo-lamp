@@ -17,12 +17,14 @@ import { Careers } from "@@builder/components/Careers/Careers";
 import { HiringProcess } from "@@builder/components/HiringProcess/HiringProcess";
 import { ContactForm } from "@@builder/components/ContactForm/ContactForm";
 import { ContactTiles } from "@@builder/components/ContactTiles/ContactTiles";
+import { LegalNoticeTable } from "@@builder/components/LegalNoticeTable/LegalNoticeTable";
 
 export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
   customAccordionInfo,
   { component: ContactForm, name: "Contact form" },
   { component: ContactTiles, name: "Contact tiles" },
   { component: HiringProcess, name: "Hiring Process" },
+  { component: LegalNoticeTable, name: "Patent Table" },
   {
     component: Careers,
     name: "Open Positions",
