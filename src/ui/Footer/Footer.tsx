@@ -27,6 +27,7 @@ export const Footer = () => {
       );
 
       const data = await response.json();
+      console.log(data, "foo");
       setNavigation(data.results[0].data.navigation);
     };
 
