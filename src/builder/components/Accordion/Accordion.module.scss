@@ -47,6 +47,11 @@
     border-bottom: 0px;
   }
 
+  &[data-with-number="true"] {
+    background-color: var(--ver-gray-10);
+    // border-bottom: 0px;
+  }
+
   @include u.at-desktop {
     font-size: 32px;
     font-style: normal;
@@ -105,6 +110,42 @@
   }
 }
 
+.ChevronSmall {
+  position: relative;
+  width: 40px;
+  height: 40px;
+
+  transform: scale(0.6);
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: 30px;
+    height: 2px;
+    background-color: var(--ver-gray-96);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    width: 2px;
+    height: 30px;
+    background-color: var(--ver-gray-96);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .Trigger[data-state="open"] > div > & {
+    &::after {
+      background-color: transparent;
+    }
+  }
+}
+
 @keyframes slideDown {
   from {
     height: 0;
@@ -120,5 +161,17 @@
   }
   to {
     height: 0;
+  }
+}
+
+.withNumberWrapper {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 16px;
+  width: 100%;
+
+  @include u.at-desktop {
+    align-items: center;
+    gap: 140px;
   }
 }

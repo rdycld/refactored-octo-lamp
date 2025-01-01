@@ -37,15 +37,18 @@ export const Footer = () => {
     <div className={styles.container}>
       <footer>
         <SectionWrapper variant="overflow">
-          <div className={styles.top}>
-            <p className={styles.text}>
-              Discover how Verity's technology can help your operations fly
-              toward excellence
-            </p>
-            <div className={styles.formContainer}>
-              <ContactForm />
+          {!window.location.pathname.includes("contact-us") && (
+            <div className={styles.top}>
+              <p className={styles.text}>
+                Discover how Verity's technology can help your operations fly
+                toward excellence
+              </p>
+              <div className={styles.formContainer}>
+                <ContactForm />
+              </div>
             </div>
-          </div>
+          )}
+
           <div className={styles.siteNavigationContainer}>
             <a href="/">
               <VerityLogoWhite />

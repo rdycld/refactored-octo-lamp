@@ -2,6 +2,8 @@ import { Button } from "@@ui/Button/Button";
 import styles from "./ContactForm.module.scss";
 import { useForm } from "react-hook-form";
 import clsx from "clsx";
+import emailjs from "@emailjs/browser";
+import toast from "react-hot-toast";
 
 type FormValues = {
   firstName: string;
@@ -11,6 +13,10 @@ type FormValues = {
   message: string;
   howDidYouKnow: string;
 };
+
+const service_id = import.meta.env.VITE_PUBLIC_EMAIL_SERVICE;
+const email_template_id = import.meta.env.VITE_BUBLIC_EMAIL_TEMPLATE;
+const email_public_key = import.meta.env.VITE_PUBLIC_EMAILJS_PUBLIC_KEY;
 
 const HelperText = ({ visible }: { visible: boolean }) =>
   visible ? (
@@ -24,12 +30,34 @@ export const ContactForm = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<FormValues>();
+
+  const sendEmail = async (data: FormValues) => {
+    emailjs
+      .send(service_id, email_template_id, data, {
+        publicKey: email_public_key,
+      })
+      .then(
+        () => {
+          toast.success(
+            <p className="label-desktop label-mobile">Mail succesfully sent</p>
+          );
+          reset();
+        },
+        () => {
+          toast.error(
+            <p className="label-desktop label-mobile">Something went wrong</p>
+          );
+        }
+      );
+  };
+
   return (
     <form
       className={styles.form}
       onSubmit={handleSubmit((e) => {
-        console.log("todo", e);
+        sendEmail(e);
       })}
     >
       <div className={styles.wrapper}>
@@ -133,11 +161,18 @@ export const ContactForm = () => {
           defaultValue={""}
         >
           <option value={""} disabled>
-            select
+            Select
           </option>
-          <option>a</option>
-          <option>b</option>
-          <option>c</option>
+          <option value={"Trade show / events"}>Trade show / events</option>
+          <option value={"Peer referral / word of mouth"}>
+            Peer referral / word of mouth
+          </option>
+          <option value={"Advertising"}>Advertising</option>
+          <option value={"Social media / Youtube"}>
+            Social media / Youtube
+          </option>
+          <option value={"Search / Google"}>Search / Google</option>
+          <option value={"Other"}>Other</option>
         </select>
       </label>
       <div className={styles.bottom}>

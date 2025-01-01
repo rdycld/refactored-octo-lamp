@@ -8,16 +8,22 @@ import {
 } from "@builder.io/sdk-react";
 import * as OrigAccordion from "@radix-ui/react-accordion";
 import React, { useState } from "react";
+
 type Tab = {
   tabName: string;
+  tabNumber?: string;
   children: BuilderBlock[];
 };
-interface AccordionProps {
-  tabList: Tab[];
-  builderBlock: BuilderBlock;
-}
 
-const Accordion = ({ tabList, builderBlock }: AccordionProps) => {
+type AccordionProps = {
+  tabList: Tab[];
+  withNumber?: boolean;
+
+  builderBlock: BuilderBlock;
+};
+
+const Accordion = (props: AccordionProps) => {
+  const { builderBlock, tabList, withNumber } = props;
   const [value, setValue] = useState(tabList[0].tabName);
 
   if (tabList.length === 0) return null;
@@ -28,7 +34,6 @@ const Accordion = ({ tabList, builderBlock }: AccordionProps) => {
       type="single"
       defaultValue={value}
       value={value}
-      collapsible
     >
       {Boolean(tabList.length) &&
         tabList.map((tab, index) => (
@@ -40,9 +45,23 @@ const Accordion = ({ tabList, builderBlock }: AccordionProps) => {
             value={tab.tabName}
             className={styles.Item}
           >
-            <AccordionTrigger>
-              {tab.tabName} <div className={styles.Chevron}></div>
-            </AccordionTrigger>
+            {withNumber ? (
+              <AccordionTrigger data-with-number="true">
+                <div className={styles.withNumberWrapper}>
+                  <span className="caption14-mobile caption14-desktop">
+                    {tab.tabNumber}
+                  </span>
+                  <span className="caption14-mobile caption14-desktop">
+                    {tab.tabName}
+                  </span>
+                  <div className={styles.ChevronSmall}></div>
+                </div>
+              </AccordionTrigger>
+            ) : (
+              <AccordionTrigger className="h4-desktop h4-mobile">
+                {tab.tabName} <div className={styles.Chevron}></div>
+              </AccordionTrigger>
+            )}
             <AccordionContent>
               <Blocks
                 parent={builderBlock?.id}
@@ -61,7 +80,7 @@ export const AccordionTrigger = React.forwardRef(
   ({ children, className, ...props }: any, forwardedRef) => (
     <OrigAccordion.Header className={styles.Header}>
       <OrigAccordion.Trigger
-        className={clsx(styles.Trigger, className, "h4-desktop h4-mobile")}
+        className={clsx(styles.Trigger, className)}
         {...props}
         ref={forwardedRef}
       >
@@ -93,12 +112,21 @@ export const customAccordionInfo: RegisteredComponent = {
   },
   inputs: [
     {
+      name: "withNumber",
+      type: "boolean",
+      defaultValue: false,
+    },
+    {
       name: "tabList",
       type: "list",
 
       subFields: [
         {
           name: "tabName",
+          type: "string",
+        },
+        {
+          name: "tabNumber",
           type: "string",
         },
         {
@@ -109,10 +137,6 @@ export const customAccordionInfo: RegisteredComponent = {
               "@type": "@builder.io/sdk:Element",
               component: {
                 name: "Core:Section",
-              },
-              responsiveStyles: {
-                large: {},
-                small: {},
               },
             },
           ],
