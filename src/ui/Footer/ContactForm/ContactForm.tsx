@@ -178,7 +178,7 @@ export const ContactForm = () => {
           )}
         >
           By submitting this I confirm that read and understand{" "}
-          <a href="/">Privacy Policy.</a>
+          <a href="/legal-notice">Privacy Policy.</a>
         </p>
         <Button onClick={() => {}}>send message</Button>
       </div>
