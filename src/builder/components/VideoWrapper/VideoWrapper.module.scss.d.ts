@@ -7,5 +7,6 @@ declare const classNames: {
   readonly playButton: "playButton";
   readonly pause: "pause";
   readonly heroButton: "heroButton";
+  readonly dropshadow: "dropshadow";
 };
 export = classNames;

@@ -101,13 +101,15 @@ export const VideoWrapper = ({
               <div role="presentation" className={styles.pause}></div>
             </div>
           ) : (
-            <div
-              role="button"
-              tabIndex={0}
-              onClick={handleClick}
-              className={clsx(styles.playButton)}
-            >
-              <Play />
+            <div className={styles.dropshadow}>
+              <div
+                role="button"
+                tabIndex={0}
+                onClick={handleClick}
+                className={clsx(styles.playButton)}
+              >
+                <Play />
+              </div>
             </div>
           )}
         </>

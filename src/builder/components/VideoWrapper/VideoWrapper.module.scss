@@ -96,3 +96,15 @@
   justify-content: center;
   align-items: center;
 }
+
+.dropshadow {
+  width: 100%;
+  position: absolute;
+  height: 200px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 10%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  bottom: 0;
+}
