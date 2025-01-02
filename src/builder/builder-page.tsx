@@ -81,7 +81,7 @@ export default function BuilderPage() {
                 className={styles.coverImage}
                 src={content.data.image}
                 alt=""
-                style={{ margin: "auto" }}
+                style={{ margin: "auto", display: "block" }}
               />
             </SectionWrapper>
           )}
