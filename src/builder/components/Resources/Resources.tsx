@@ -145,6 +145,8 @@ export const Resources = () => {
     if (typeFilter.split(",").includes(typeParam)) return;
 
     handleChangeFilters(`"${typeParam}"`, "type");
+    // this is intentional
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {

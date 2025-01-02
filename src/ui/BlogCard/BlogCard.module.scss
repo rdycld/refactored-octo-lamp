@@ -5,6 +5,10 @@
   background-color: var(--ver-white);
   height: 100%;
   flex-grow: 1;
+
+  &[data-dark="true"] {
+    background-color: var(--ver-gray-10);
+  }
 }
 
 .image {

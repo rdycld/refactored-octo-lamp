@@ -9,6 +9,7 @@ type BlogCardProps = {
   teaser: string;
   tags: string[];
   expectedTag?: string;
+  dark?: boolean;
 };
 export const BlogCard = ({
   teaser,
@@ -16,9 +17,10 @@ export const BlogCard = ({
   url,
   tags = [],
   expectedTag,
+  dark = false,
 }: BlogCardProps) => {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-dark={dark}>
       <img className={styles.image} src={headerImage} />
       <div className={styles.content}>
         {(expectedTag || tags[0]) && (

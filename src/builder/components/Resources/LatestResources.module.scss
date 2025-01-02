@@ -1,0 +1,37 @@
+@use "@cssUtils" as u;
+
+.container {
+  display: grid;
+  gap: var(--ver-spacing-xl);
+
+  @include u.at-desktop {
+    grid-template-columns: 3fr 2fr;
+  }
+}
+
+.article {
+  padding-top: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--ver-gray-96);
+
+  &:first-of-type {
+    padding-top: 0px;
+  }
+}
+
+.label {
+  display: flex;
+  padding: 4px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 100px;
+  border: 1px solid var(--ver-purple-50);
+  margin-bottom: 24px;
+  width: fit-content;
+}
+
+.title {
+  text-decoration: none;
+  display: block;
+}
